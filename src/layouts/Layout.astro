@@ -1,0 +1,65 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL('/logos.png', canonicalURL)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="bakery, sourdough bread, born yesterday bakery, pickup" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Facebook -->
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="bornyesterdaybakery.com" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
+
+    <!-- Favicon & Theme -->
+  </head>
+  <body>
+    <header>
+      <!-- Desktop -->
+      <nav class="p-4 bg-yellow">
+        <ul class="flex justify-center items-center gap-8">
+          <li><a href="/about">About</a></li>
+          <li><a href="/menu">Menu</a></li>
+          <li class="pl-4 pr-4">
+            <a href="/">
+              <img class="w-48" src="/red-logo-removebg.png" alt="logo" />
+            </a>
+          </li>
+          <li><a href="/order">Order</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Bobby Jones Soft Outline';
+  src: url('/fonts/BobbyJonesSoft-Outline.woff2') format('woff2'),
+    url('/fonts/BobbyJonesSoft-Outline.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bobby Jones Soft';
+  src: url('/fonts/BobbyJonesSoft-Regular.woff2') format('woff2'),
+    url('/fonts/BobbyJonesSoft-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bobby Rough Soft Outline';
+  src: url('/fonts/BobbyRoughSoft-Outline.woff2') format('woff2'),
+    url('/fonts/BobbyRoughSoft-Outline.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bobby Rough Soft';
+  src: url('/fonts/BobbyRoughSoft-Regular.woff2') format('woff2'),
+    url('/fonts/BobbyRoughSoft-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-bobby-soft: 'Bobby Jones Soft', sans-serif;
+  --font-bobby-soft-outline: 'Bobby Jones Soft Outline', sans-serif;
+  --font-bobby-rough-soft: 'Bobby Rough Soft', sans-serif;
+  --font-bobby-rough-soft-outline: 'Bobby Rough Soft Outline', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bobby-soft-outline);
+}
+
+body {
+  font-family: var(--font-bobby-soft);
+}

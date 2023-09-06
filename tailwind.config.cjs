@@ -6,9 +6,6 @@ module.exports = {
       heading: ['Bobby Jones Soft Outline', 'sans-serif'],
       body: ['Bobby Jones Soft', 'serif'],
     },
-    colors: {
-      yellow: '#FFB93B',
-    },
   },
   plugins: [],
 }

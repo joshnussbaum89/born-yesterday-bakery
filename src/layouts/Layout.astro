@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Navigation from '../components/layout/navigation/Navigation.astro'
+import Footer from '../components/layout/Footer.astro'
 
 interface Props {
   title: string
@@ -49,5 +50,6 @@ const socialImageURL = new URL('/logos.png', canonicalURL)
       <Navigation />
     </header>
     <slot />
+    <Footer />
   </body>
 </html>

@@ -39,15 +39,32 @@
   --font-bobby-soft-outline: 'Bobby Jones Soft Outline', sans-serif;
   --font-bobby-rough-soft: 'Bobby Rough Soft', sans-serif;
   --font-bobby-rough-soft-outline: 'Bobby Rough Soft Outline', sans-serif;
+
+  --color-primary: #ff5758;
+  --color-secondary: #f0f9ff;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --size-xxs: 0.75rem; /* line-height: 1rem */
+  --size-xs: 1rem; /* line-height: 1.5rem */
+  --size-sm: 1.25rem; /* line-height: 1.75rem */
+  --size-base: 1.563rem; /* line-height: 2rem */
+  --size-lg: 2.441rem; /* line-height: 2.5rem */
+  --size-xl: 3.052rem;
+  --size-xxl: 3.815rem;
+
+  --transition-normal: 0.3s ease-in-out;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-bobby-soft-outline);
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -60,6 +77,40 @@ body[data-overlay-displayed='true'] {
 
 main {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 10rem 1rem;
   max-width: 1200px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-bobby-soft-outline);
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+input,
+textarea,
+button {
+  font-family: var(--font-bobby-soft);
 }

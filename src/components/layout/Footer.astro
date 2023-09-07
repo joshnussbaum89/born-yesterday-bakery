@@ -1,0 +1,79 @@
+<footer id="footer">
+  <p>
+    &copy; {new Date().getFullYear()} Born Yesterday Bakery
+  </p>
+  <div class="icons">
+    <a
+      href="https://www.instagram.com/bornyesterdaybakery/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+        ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+          x="4"
+          y="4"
+          width="16"
+          height="16"
+          rx="4"></rect><circle cx="12" cy="12" r="3"></circle><line
+          x1="16.5"
+          y1="7.5"
+          x2="16.5"
+          y2="7.501"></line></svg
+      >
+    </a>
+    <a href="mailto:bornyesterdaybakery@gmail.com">
+      <svg
+        stroke="currentColor"
+        fill="none"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+        ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+          x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg
+      >
+    </a>
+  </div>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: var(--size-xs);
+    text-align: center;
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+  }
+
+  footer p {
+    margin-bottom: 0;
+  }
+
+  footer .icons svg {
+    width: var(--size-base);
+    height: var(--size-base);
+  }
+
+  footer .icons a:first-of-type {
+    margin-right: 1rem;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import PageHeader from '../text/PageHeader.astro'
+
+export interface Props {
+  title: string
+  description?: string
+  url: string
+}
+
+const { title, description, url } = Astro.props
+---
+
+<div class="banner" style={`background-image: url(${url});`}>
+  <PageHeader title={title} />
+  {description && <p>{description}</p>}
+</div>
+
+<style>
+  .banner {
+    min-height: 50vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--color-white);
+  }
+
+  @media only screen and (max-device-width: 1366px) {
+    .banner {
+      background-attachment: scroll;
+    }
+  }
+
+  .banner p {
+    font-size: var(--size-sm);
+  }
+
+  @media (min-width: 768px) {
+    .banner p {
+      font-size: var(--size-base);
+    }
+  }
+</style>

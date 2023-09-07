@@ -4,16 +4,12 @@
   <div class="bottom"></div>
 </div>
 
-<div class="mobile-nav-overlay bg-sky-50">
+<div class="mobile-nav-overlay">
   <ul>
-    <li class="text-2xl"><a href="/about" aria-label="about">About</a></li>
-    <li class="text-2xl"><a href="/menu" aria-label="menu">Menu</a></li>
-    <li class="text-2xl">
-      <a href="/pricing" aria-label="pricing">Pricing</a>
-    </li>
-    <li class="text-2xl">
-      <a href="/contact" aria-label="contact">Contact</a>
-    </li>
+    <li><a href="/about" aria-label="about">About</a></li>
+    <li><a href="/menu" aria-label="menu">Menu</a></li>
+    <li><a href="/order" aria-label="order">Order</a></li>
+    <li><a href="/contact" aria-label="contact">Contact</a></li>
   </ul>
 </div>
 
@@ -41,7 +37,7 @@
   .hamburger .bottom {
     height: 2px;
     border-radius: 5px;
-    background-color: #000;
+    background-color: var(--color-black);
     transition: all 0.6s cubic-bezier(0.68, -0.85, 0.265, 1.55);
   }
 
@@ -80,18 +76,19 @@
     opacity: 0;
     z-index: -1;
     visibility: hidden;
+    background-color: var(--color-secondary);
     backdrop-filter: saturate(180%) blur(5px);
     transition:
-      opacity 0.3s ease-in-out,
-      visibility 0s 0.3s,
-      z-index 0s 0.3s;
+      opacity var(--transition-normal),
+      visibility 0s var(--transition-normal),
+      z-index 0s var(--transition-normal);
     border-radius: 1rem;
   }
 
   .hamburger.active + .mobile-nav-overlay {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity var(--transition-normal);
     z-index: 3;
   }
 
@@ -105,7 +102,8 @@
 
   .mobile-nav-overlay ul li {
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all var(--transition-normal);
+    font-size: var(--size-base);
   }
 
   .hamburger.active + .mobile-nav-overlay ul li {

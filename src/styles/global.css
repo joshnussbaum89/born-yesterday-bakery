@@ -44,6 +44,7 @@
   --color-secondary: #f0f9ff;
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-grey: #858585;
 
   --size-xxs: 0.75rem; /* line-height: 1rem */
   --size-xs: 1rem; /* line-height: 1.5rem */
@@ -113,4 +114,19 @@ input,
 textarea,
 button {
   font-family: var(--font-bobby-soft);
+}
+
+.site-cta {
+  padding: 1rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  text-align: center;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.site-cta:hover {
+  opacity: 0.8;
 }

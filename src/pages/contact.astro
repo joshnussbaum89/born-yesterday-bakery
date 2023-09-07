@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import heroImage from '../assets/hero.jpg'
+import heroImage from '../assets/hero-contact.jpg'
 
 const image = await getImage({ src: heroImage })
 ---
@@ -14,16 +14,125 @@ const image = await getImage({ src: heroImage })
 >
   <HeroBanner title="Contact" url={image.src} description="Page description goes here" />
   <main>
-    <SectionHeader title="Page Content Goes Here" />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptates enim veritatis
-      suscipit? Blanditiis corrupti, non harum error saepe ipsum tempore modi dolores! Ab provident
-      quo ratione, a nulla facere?
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vel mollitia cum ducimus
-      possimus facilis perferendis, excepturi aliquam veniam suscipit commodi itaque nihil neque.
-      Maxime magnam veritatis mollitia provident voluptas!
-    </p>
+    <section id="contact" class="contact">
+      <SectionHeader title="Contact Us" />
+      <div class="contact-container">
+        <img src={heroImage.src} alt="Contact" />
+        <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
+          <label for="name">Name: <span>*</span></label>
+          <input id="name" type="text" name="name" placeholder="Name" required />
+          <label for="email">Email: <span>*</span></label>
+          <input id="email" type="email" name="email" placeholder="Email" required />
+          <label for="message">Message: <span>*</span></label>
+          <textarea id="message" name="message" cols="30" rows="5" placeholder="message" required
+          ></textarea>
+          <button class="site-cta" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .contact-container {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .contact-container > p {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .contact-container > p {
+      max-width: 500px;
+    }
+  }
+
+  .contact-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form label,
+  .form input,
+  .form textarea {
+    font-size: var(--size-sm);
+  }
+
+  .form label,
+  .form input,
+  .form textarea {
+    border-radius: 5px;
+  }
+
+  .form input,
+  .form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 2px solid var(--color-black);
+    background: var(--color-white);
+    transition: var(--transition-normal);
+  }
+
+  .form label {
+    margin-bottom: 0.25rem;
+  }
+
+  .form label span {
+    color: var(--color-red);
+  }
+
+  .form textarea {
+    margin-bottom: 2rem;
+  }
+
+  .form button {
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: var(--size-sm);
+  }
+
+  @media (min-width: 768px) {
+    .form button {
+      font-size: var(--size-base);
+    }
+  }
+
+  .form input:focus,
+  .form textarea:focus {
+    outline: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 0 0 2px var(--color-secondary);
+    box-shadow: 0 0 0 2px var(--color-secondary);
+  }
+
+  .form input::placeholder,
+  .form textarea::placeholder {
+    color: var(--color-grey);
+  }
+</style>

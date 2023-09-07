@@ -11,12 +11,24 @@ const { title, description, url } = Astro.props
 ---
 
 <div class="banner" style={`background-image: url(${url});`}>
+  <div class="scrim"></div>
   <PageHeader title={title} />
   {description && <p>{description}</p>}
 </div>
 
 <style>
+  .scrim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--color-black);
+    opacity: 0.4;
+  }
+
   .banner {
+    position: relative;
     min-height: 50vh;
     width: 100%;
     background-position: center;
@@ -37,6 +49,7 @@ const { title, description, url } = Astro.props
   }
 
   .banner p {
+    z-index: 1;
     font-size: var(--size-sm);
   }
 

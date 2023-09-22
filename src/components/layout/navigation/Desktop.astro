@@ -17,9 +17,9 @@ import Logo from '../../../assets/logo.png'
 
 <style>
   body[data-current-url='/'] .desktop-nav li:nth-child(1),
-  body[data-current-url='/menu'] .desktop-nav li:nth-child(2),
-  body[data-current-url='/order'] .desktop-nav li:nth-child(4),
-  body[data-current-url='/contact'] .desktop-nav li:nth-child(5) {
+  body[data-current-url^='/menu'] .desktop-nav li:nth-child(2),
+  body[data-current-url^='/order'] .desktop-nav li:nth-child(4),
+  body[data-current-url^='/contact'] .desktop-nav li:nth-child(5) {
     color: var(--color-primary);
   }
 

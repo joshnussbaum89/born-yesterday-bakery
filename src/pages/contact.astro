@@ -1,6 +1,6 @@
 ---
+import { Image, getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
 import MainContent from '../components/layout/MainContent.astro'
@@ -18,7 +18,12 @@ const image = await getImage({ src: heroImage })
     <section id="contact" class="contact">
       <SectionHeader title="Let's Chat" />
       <div class="contact-container">
-        <img src={heroImage.src} alt="Contact" />
+        <Image
+          src={heroImage}
+          alt="Vanilla/sumac kouign-Amann filled with homemade labneh topped with an herb olive oil"
+          width={heroImage.width}
+          height={heroImage.height}
+        />
         <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
           <label for="name">Name: <span>*</span></label>
           <input id="name" type="text" name="name" placeholder="Name" required />

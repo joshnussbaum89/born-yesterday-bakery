@@ -1,9 +1,14 @@
+---
+import { Image } from 'astro:assets'
+import Logo from '../../../assets/logo.png'
+---
+
 <ul class="desktop-nav">
   <li><a href="/" aria-label="home">Home</a></li>
   <li><a href="/menu" aria-label="menu">Menu</a></li>
   <li class="logo" aria-label="home">
     <a href="/">
-      <img src="/logo.png" alt="logo" />
+      <Image src={Logo} alt="logo" width={Logo.width} height={Logo.height} />
     </a>
   </li>
   <li><a href="/order" aria-label="order">Order</a></li>
@@ -53,5 +58,6 @@
 
   .logo img {
     width: 14rem;
+    height: auto;
   }
 </style>

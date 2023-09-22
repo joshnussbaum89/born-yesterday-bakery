@@ -39,6 +39,7 @@
   --font-bobby-soft-outline: 'Bobby Jones Soft Outline', sans-serif;
   --font-bobby-rough-soft: 'Bobby Rough Soft', sans-serif;
   --font-bobby-rough-soft-outline: 'Bobby Rough Soft Outline', sans-serif;
+  --font-baloo-bhaijaan: 'Baloo Bhaijaan 2', cursive;
 
   --color-primary: #ff5758;
   --color-secondary: #f0f9ff;
@@ -69,7 +70,11 @@ html {
 }
 
 body {
-  font-family: var(--font-bobby-soft);
+  font-family: var(--font-baloo-bhaijaan);
+  letter-spacing: 0.75px;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: balance;
 }
 
 body[data-overlay-displayed='true'] {
@@ -77,23 +82,28 @@ body[data-overlay-displayed='true'] {
 }
 
 main {
+  max-width: 1024px;
   margin: 0 auto;
   padding: 10rem 1rem;
-  max-width: 1200px;
 }
 
-h1,
+h1 {
+  margin: 0;
+  font-family: var(--font-bobby-soft);
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
   margin: 0;
-  font-family: var(--font-bobby-soft-outline);
+  font-family: var(--font-bobby-rough-soft-outline);
 }
 
 p {
   margin: 0 0 1rem 0;
+  font-size: var(--size-sm);
 }
 
 a {
@@ -113,16 +123,21 @@ li {
 input,
 textarea,
 button {
-  font-family: var(--font-bobby-soft);
+  font-family: var(--font-baloo-bhaijaan);
+}
+
+section:not(:last-child) {
+  margin-bottom: 6rem;
 }
 
 .site-cta {
-  padding: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
   color: var(--color-white);
   background-color: var(--color-primary);
   text-align: center;
   border: 0;
-  border-radius: 0.5rem;
+  border-radius: 10rem;
   cursor: pointer;
   transition: all var(--transition-normal);
 }

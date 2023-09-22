@@ -1,8 +1,9 @@
 ---
-import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
+import MainContent from '../components/layout/MainContent.astro'
 import heroImage from '../assets/hero-contact.jpg'
 
 const image = await getImage({ src: heroImage })
@@ -12,10 +13,10 @@ const image = await getImage({ src: heroImage })
   title="Born Yesterday Bakery | Contact"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Contact" url={image.src} description="Page description goes here" />
-  <main>
+  <HeroBanner title="Contact Us" url={image.src} />
+  <MainContent>
     <section id="contact" class="contact">
-      <SectionHeader title="Contact Us" />
+      <SectionHeader title="Let's Chat" />
       <div class="contact-container">
         <img src={heroImage.src} alt="Contact" />
         <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
@@ -30,7 +31,7 @@ const image = await getImage({ src: heroImage })
         </form>
       </div>
     </section>
-  </main>
+  </MainContent>
 </Layout>
 
 <style>
@@ -43,7 +44,7 @@ const image = await getImage({ src: heroImage })
     grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
-    gap: 6rem;
+    gap: 4rem;
   }
 
   @media (min-width: 768px) {
@@ -94,7 +95,6 @@ const image = await getImage({ src: heroImage })
     margin-bottom: 1rem;
     padding: 0.5rem;
     border: 2px solid var(--color-black);
-    background: var(--color-white);
     transition: var(--transition-normal);
   }
 
@@ -103,7 +103,7 @@ const image = await getImage({ src: heroImage })
   }
 
   .form label span {
-    color: var(--color-red);
+    color: var(--color-primary);
   }
 
   .form textarea {
@@ -112,7 +112,6 @@ const image = await getImage({ src: heroImage })
 
   .form button {
     margin: 0 auto;
-    padding: 1rem;
     font-size: var(--size-sm);
   }
 
@@ -127,8 +126,8 @@ const image = await getImage({ src: heroImage })
     outline: 0;
     appearance: none;
     -webkit-appearance: none;
-    -webkit-box-shadow: 0 0 0 2px var(--color-secondary);
-    box-shadow: 0 0 0 2px var(--color-secondary);
+    -webkit-box-shadow: 0 0 0 2px var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary);
   }
 
   .form input::placeholder,

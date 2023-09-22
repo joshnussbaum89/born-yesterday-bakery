@@ -1,8 +1,7 @@
 ---
-import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
-import SectionHeader from '../components/text/SectionHeader.astro'
 import heroImage from '../assets/hero-menu.jpg'
 
 const image = await getImage({ src: heroImage })
@@ -12,18 +11,104 @@ const image = await getImage({ src: heroImage })
   title="Born Yesterday Bakery | Menu"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Menu" url={image.src} description="Page description goes here" />
+  <HeroBanner
+    title="Menu"
+    url={image.src}
+    description="Our menu varies frequently. Check back often to see what we're baking!"
+  />
   <main>
-    <SectionHeader title="Page Content Goes Here" />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptates enim veritatis
-      suscipit? Blanditiis corrupti, non harum error saepe ipsum tempore modi dolores! Ab provident
-      quo ratione, a nulla facere?
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vel mollitia cum ducimus
-      possimus facilis perferendis, excepturi aliquam veniam suscipit commodi itaque nihil neque.
-      Maxime magnam veritatis mollitia provident voluptas!
-    </p>
+    <section id="menu" class="menu">
+      <div class="menu-category">
+        <h2>Bread</h2>
+        <ul>
+          <li>Spelt Country Batard <span>$9</span></li>
+          <li>Anadama Batard <span>$9.50</span></li>
+          <li>Cheddar Boule <span>$10</span></li>
+          <li>Whole Wheat Sandwich Pullman <span>$8.50</span></li>
+          <li>Multigrain Pullman <span>$10</span></li>
+          <li>Sprouted Rye Pullman <span>$10</span></li>
+          <li>Milk Pullman <span>$8.50</span></li>
+          <li>Marble Rye Pullman <span>$9.50</span></li>
+          <li>Tavola <span>$9</span></li>
+          <li>Brioche Bun 6pk <span>$5</span></li>
+          <li>Demi-Baguette <span>$3.50</span></li>
+          <li>Seasonal Veg Focaccia <span>[4x4" slice $6 / Full 9x12" $24]</span></li>
+        </ul>
+      </div>
+      <div class="menu-category">
+        <h2>Pastries</h2>
+        <ul>
+          <li>Sourdough Chocolate Chip Cookie <span>$3</span></li>
+          <li>Ginger Molasses Cookie <span>$3</span></li>
+          <li>Apple Galette <span>$6</span></li>
+        </ul>
+      </div>
+      <a href="/order" class="site-cta">Order Now</a>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .menu-category {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .menu-category h2 {
+    margin-bottom: 2.5rem;
+    font-size: var(--size-lg);
+  }
+
+  @media (min-width: 768px) {
+    .menu-category h2 {
+      margin-bottom: 3.25rem;
+      font-size: var(--size-xl);
+      text-align: center;
+    }
+  }
+
+  .menu-category li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: var(--size-sm);
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {
+    .menu-category li {
+      margin-bottom: 2rem;
+      font-size: var(--size-base);
+    }
+  }
+
+  .menu-category li span {
+    font-size: var(--size-xs);
+    text-align: right;
+  }
+
+  @media (min-width: 768px) {
+    .menu-category li span {
+      font-size: var(--size-sm);
+    }
+  }
+
+  .menu a {
+    font-size: var(--size-sm);
+  }
+
+  @media (min-width: 768px) {
+    .menu a {
+      font-size: var(--size-base);
+    }
+  }
+</style>

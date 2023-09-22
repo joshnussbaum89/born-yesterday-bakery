@@ -1,7 +1,8 @@
 ---
-import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
+import MainContent from '../components/layout/MainContent.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
 import heroImage from '../assets/hero-order.jpg'
 
@@ -12,18 +13,14 @@ const image = await getImage({ src: heroImage })
   title="Born Yesterday Bakery | Order"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Order" url={image.src} description="Page description goes here" />
-  <main>
+  <HeroBanner title="Order" url={image.src} description="Order some bread!" />
+  <MainContent>
     <SectionHeader title="Page Content Goes Here" />
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptates enim veritatis
-      suscipit? Blanditiis corrupti, non harum error saepe ipsum tempore modi dolores! Ab provident
-      quo ratione, a nulla facere?
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus, quibusdam,
+      quia, voluptatem voluptatum quod quos reprehenderit voluptate quas quidem dolorum. Quisquam
+      voluptatibus, quibusdam, quia, voluptatem voluptatum quod quos reprehenderit voluptate quas
+      quidem dolorum.
     </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam vel mollitia cum ducimus
-      possimus facilis perferendis, excepturi aliquam veniam suscipit commodi itaque nihil neque.
-      Maxime magnam veritatis mollitia provident voluptas!
-    </p>
-  </main>
+  </MainContent>
 </Layout>

@@ -1,8 +1,15 @@
 <footer id="footer">
-  <p>
-    &copy; {new Date().getFullYear()} Born Yesterday Bakery
-  </p>
-  <div class="icons">
+  <div class="footer-info">
+    <p>
+      &copy; {new Date().getFullYear()} Born Yesterday Bakery
+    </p>
+    <p>
+      Website by <a href="http://wavelandweb.com" target="_blank" rel="noopener noreferrer"
+        >Wave Land Web</a
+      >
+    </p>
+  </div>
+  <div class="footer-icons">
     <a
       href="https://www.instagram.com/bornyesterdaybakery/"
       target="_blank"
@@ -54,9 +61,6 @@
 
 <style>
   footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 2rem;
     font-size: var(--size-xs);
     text-align: center;
@@ -64,16 +68,37 @@
     background-color: var(--color-primary);
   }
 
-  footer p {
-    margin-bottom: 0;
+  @media (min-width: 768px) {
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
   }
 
-  footer .icons svg {
+  @media (min-width: 768px) {
+    .footer-info p {
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-info p:nth-child(2) {
+    font-size: var(--size-xs);
+  }
+
+  .footer-icons,
+  .footer-icons a {
+    display: flex;
+  }
+
+  .footer-icons {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .footer-icons svg {
     width: var(--size-base);
     height: var(--size-base);
-  }
-
-  footer .icons a:first-of-type {
-    margin-right: 1rem;
   }
 </style>

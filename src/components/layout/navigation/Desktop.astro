@@ -1,16 +1,23 @@
 <ul class="desktop-nav">
-  <li><a href="/about">About</a></li>
-  <li><a href="/menu">Menu</a></li>
-  <li class="logo">
+  <li><a href="/" aria-label="home">Home</a></li>
+  <li><a href="/menu" aria-label="menu">Menu</a></li>
+  <li class="logo" aria-label="home">
     <a href="/">
       <img src="/logo.png" alt="logo" />
     </a>
   </li>
-  <li><a href="/order">Order</a></li>
-  <li><a href="/contact">Contact</a></li>
+  <li><a href="/order" aria-label="order">Order</a></li>
+  <li><a href="/contact" aria-label="contact">Contact</a></li>
 </ul>
 
 <style>
+  body[data-current-url='/'] .desktop-nav li:nth-child(1),
+  body[data-current-url='/menu'] .desktop-nav li:nth-child(2),
+  body[data-current-url='/order'] .desktop-nav li:nth-child(4),
+  body[data-current-url='/contact'] .desktop-nav li:nth-child(5) {
+    color: var(--color-primary);
+  }
+
   .desktop-nav {
     display: none;
   }
@@ -26,6 +33,11 @@
 
   .desktop-nav li {
     font-size: var(--size-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .desktop-nav li:hover {
+    color: var(--color-primary);
   }
 
   .logo {

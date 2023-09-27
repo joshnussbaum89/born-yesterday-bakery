@@ -12,7 +12,7 @@ const image = await getImage({ src: heroImage })
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
   <HeroBanner
-    title="Menu"
+    title="Rotating Menu"
     url={image.src}
     description="Our menu varies frequently. Check back often to see what we're baking!"
   />
@@ -54,6 +54,15 @@ const image = await getImage({ src: heroImage })
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    padding: 2rem;
+    background-color: var(--color-secondary);
+    box-shadow: 1rem 1rem 4rem var(--color-grey-shadow);
+  }
+
+  @media (min-width: 768px) {
+    .menu {
+      padding: 4rem 2rem;
+    }
   }
 
   .menu-category {

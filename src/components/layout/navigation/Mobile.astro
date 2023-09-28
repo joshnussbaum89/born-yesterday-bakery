@@ -186,24 +186,32 @@
 </style>
 
 <script>
-  const body = document.querySelector('body') as HTMLBodyElement
-  const hamburger = document.getElementById('hamburger') as HTMLDivElement
+  const body = document.querySelector('body')
+  const hamburger = document.getElementById('hamburger')
+  const navItems = document.querySelectorAll('.mobile-nav-overlay li')
   let overlayDisplayed = false
 
   function handleMobileNavigationOnClick() {
     overlayDisplayed = !overlayDisplayed
-    body.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-    hamburger.classList.toggle('active')
+    body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+    hamburger?.classList.toggle('active')
   }
 
   function handleMobileNavigationOnResize() {
     if (window.innerWidth >= 768) {
       overlayDisplayed = false
-      body.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-      hamburger.classList.remove('active')
+      body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+      hamburger?.classList.remove('active')
     }
   }
 
-  hamburger.addEventListener('click', handleMobileNavigationOnClick)
+  function closeMobileNavOverlay() {
+    overlayDisplayed = false
+    body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+    hamburger?.classList.remove('active')
+  }
+
+  navItems.forEach((item) => item.addEventListener('click', closeMobileNavOverlay))
+  hamburger?.addEventListener('click', handleMobileNavigationOnClick)
   window.addEventListener('resize', handleMobileNavigationOnResize)
 </script>

@@ -1,0 +1,210 @@
+---
+import { Image } from 'astro:assets'
+import logo from '../../assets/logo.png'
+import paperTexture from '../../assets/paper-texture.png'
+---
+
+<div class="splash" style={`background-image: url(${paperTexture.src})`}>
+  <div class="scrim"></div>
+  <div class="splash-content">
+    <Image src={logo} alt="Born Yesterday Bakery Logo" width={logo.width} height={logo.height} />
+    <p>Sourdough baked goods made with local, organic & ancient grains in Western Maine</p>
+    <div class="splace-ctas">
+      <button class="site-cta">Enter Site</button>
+      <a href="/order" class="site-cta">Order Now</a>
+    </div>
+    <div class="splash-icons">
+      <a
+        href="https://www.instagram.com/bornyesterdaybakery/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+          ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+            x="4"
+            y="4"
+            width="16"
+            height="16"
+            rx="4"></rect><circle cx="12" cy="12" r="3"></circle><line
+            x1="16.5"
+            y1="7.5"
+            x2="16.5"
+            y2="7.501"></line></svg
+        >
+      </a>
+      <a href="mailto:bornyesterdaybakery@gmail.com">
+        <svg
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+          ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg
+        >
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .splash {
+    visibility: hidden;
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: all var(--transition-long);
+  }
+
+  .splash.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+  }
+
+  .splash .scrim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-secondary);
+    opacity: 0.5;
+    z-index: -1;
+  }
+
+  .splash-content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .splash-content img {
+    width: 100%;
+    max-width: 375px;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .splash-content p {
+    max-width: 525px;
+    margin-bottom: 2rem;
+    font-size: var(--size-base);
+  }
+
+  .splace-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(var(--size-xs), 2vw, var(--size-base));
+    margin-bottom: 2rem;
+  }
+
+  .splace-ctas .site-cta {
+    font-size: var(--size-base);
+    color: var(--color-secondary);
+  }
+
+  .splace-ctas button.site-cta,
+  .splace-ctas a.site-cta {
+    outline: 2px solid var(--color-primary);
+  }
+
+  .splace-ctas button.site-cta:hover {
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .splace-ctas a.site-cta {
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .splace-ctas a.site-cta:hover {
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+  }
+
+  .splash-icons {
+    position: absolute;
+    bottom: var(--size-base);
+    right: var(--size-base);
+  }
+
+  .splash-icons,
+  .splash-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .splash-icons {
+    justify-content: center;
+    gap: var(--size-base);
+  }
+
+  .splash-icons svg {
+    width: var(--size-lg);
+    height: var(--size-lg);
+    transition: var(--transition-normal);
+  }
+
+  .splash-icons a:hover svg {
+    color: var(--color-primary);
+  }
+</style>
+
+<script>
+  function handleSplashDisplay() {
+    const body = document.querySelector('body')
+    const splash = document.querySelector('.splash')
+    const buttons = document.querySelectorAll('.splash .site-cta')
+    const userClosedSplash = sessionStorage.getItem('user-closed-splash') === 'true'
+
+    const closeSplash = () => {
+      splash?.classList.remove('active')
+      body!.dataset.overlayDisplayed = 'false'
+      sessionStorage.setItem('user-closed-splash', 'true')
+    }
+
+    const showSplash = () => {
+      splash?.classList.add('active')
+      body!.dataset.overlayDisplayed = 'true'
+      sessionStorage.setItem('user-closed-splash', 'false')
+    }
+
+    // If user has not closed the splash, show it
+    if (!userClosedSplash) {
+      showSplash()
+    }
+
+    buttons.forEach((button) => button.addEventListener('click', closeSplash))
+  }
+
+  // Load immediately if the DOM is ready
+  window.addEventListener('DOMContentLoaded', handleSplashDisplay)
+</script>

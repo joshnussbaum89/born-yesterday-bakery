@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import Splash from '../components/layout/Splash.astro'
 import Navigation from '../components/layout/navigation/Navigation.astro'
 import Footer from '../components/layout/Footer.astro'
 
@@ -51,11 +52,35 @@ const socialImageURL = new URL('/logo.png', canonicalURL)
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-overlay-displayed="false">
+    <Splash />
     <header>
       <Navigation />
     </header>
-    <slot />
-    <Footer />
+    <div class="content-wrapper">
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
+
+<style>
+  .content-wrapper {
+    transition: opacity var(--transition-long);
+    opacity: 0;
+  }
+
+  .content-wrapper.active {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  function handleContentFadeIn() {
+    const contentWrapper = document.querySelector('.content-wrapper')
+    contentWrapper?.classList.add('active')
+  }
+
+  // Load after all assets are loaded
+  window.addEventListener('load', handleContentFadeIn)
+</script>

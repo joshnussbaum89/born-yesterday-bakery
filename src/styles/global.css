@@ -19,6 +19,7 @@
 
   --color-primary: #ff5758;
   --color-secondary: #f0f9ff;
+  --color-secondary-transparent: #f0f9ffe9;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-grey: #858585;
@@ -33,6 +34,7 @@
   --size-xxl: 3.815rem;
 
   --transition-normal: 0.2s ease-in-out;
+  --transition-long: 0.5s ease-in-out;
 }
 
 html,

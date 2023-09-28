@@ -211,7 +211,7 @@
     hamburger?.classList.remove('active')
   }
 
-  navItems.forEach((item) => item.addEventListener('click', closeMobileNavOverlay))
   hamburger?.addEventListener('click', handleMobileNavigationOnClick)
   window.addEventListener('resize', handleMobileNavigationOnResize)
+  navItems.forEach((item) => item.addEventListener('click', closeMobileNavOverlay))
 </script>

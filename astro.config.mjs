@@ -4,7 +4,4 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://bornyesterdaybakery.com',
   scopedStyleStrategy: 'class',
-  build: {
-    inlineStylesheets: 'always',
-  },
 })

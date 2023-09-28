@@ -1,25 +1,21 @@
 @font-face {
   font-family: 'Bobby Jones Soft';
-  src: url('/fonts/BobbyJonesSoft-Regular.woff2') format('woff2'),
-    url('/fonts/BobbyJonesSoft-Regular.woff') format('woff');
+  src: url('/fonts/BobbyJonesSoft-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'Bobby Rough Soft Outline';
-  src: url('/fonts/BobbyRoughSoft-Outline.woff2') format('woff2'),
-    url('/fonts/BobbyRoughSoft-Outline.woff') format('woff');
+  src: url('/fonts/BobbyRoughSoft-Outline.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 :root {
   --font-bobby-soft: 'Bobby Jones Soft', sans-serif;
   --font-bobby-rough-soft-outline: 'Bobby Rough Soft Outline', sans-serif;
-  --font-baloo-bhaijaan: 'Baloo Bhaijaan 2', cursive;
+  --font-baloo-bhaijaan: 'Baloo Bhaijaan 2', sans-serif;
 
   --color-primary: #ff5758;
   --color-secondary: #f0f9ff;

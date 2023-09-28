@@ -1,14 +1,16 @@
 ---
 import { Image } from 'astro:assets'
-import Logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.png'
+
+const currentPath = Astro.url.pathname
 ---
 
-<ul class="desktop-nav">
+<ul class="desktop-nav" data-current-url={currentPath}>
   <li><a href="/" aria-label="home">Home</a></li>
   <li><a href="/menu" aria-label="menu">Menu</a></li>
   <li class="logo" aria-label="home">
     <a href="/">
-      <Image src={Logo} alt="logo" width={Logo.width} height={Logo.height} />
+      <Image src={logo} alt="Born Yesterday Bakery Logo" width={logo.width} height={logo.height} />
     </a>
   </li>
   <li><a href="/order" aria-label="order">Order</a></li>
@@ -16,10 +18,10 @@ import Logo from '../../../assets/logo.png'
 </ul>
 
 <style>
-  body[data-current-url='/'] .desktop-nav li:nth-child(1),
-  body[data-current-url^='/menu'] .desktop-nav li:nth-child(2),
-  body[data-current-url^='/order'] .desktop-nav li:nth-child(4),
-  body[data-current-url^='/contact'] .desktop-nav li:nth-child(5) {
+  .desktop-nav[data-current-url='/'] li:nth-child(1),
+  .desktop-nav[data-current-url^='/menu'] li:nth-child(2),
+  .desktop-nav[data-current-url^='/order'] li:nth-child(4),
+  .desktop-nav[data-current-url^='/contact'] li:nth-child(5) {
     color: var(--color-primary);
   }
 
@@ -37,7 +39,6 @@ import Logo from '../../../assets/logo.png'
   }
 
   .desktop-nav li {
-    font-size: var(--size-sm);
     transition: all var(--transition-normal);
   }
 

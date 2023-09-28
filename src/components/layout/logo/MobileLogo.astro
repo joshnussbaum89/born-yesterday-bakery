@@ -1,5 +1,10 @@
+---
+import { Image } from 'astro:assets'
+import logo from '../../../assets/logo.png'
+---
+
 <a class="logo" href="/">
-  <img src="/logo.png" alt="logo" />
+  <Image src={logo} alt="Born Yesterday Bakery Logo" width={logo.width} height={logo.height} />
 </a>
 
 <style>
@@ -23,5 +28,6 @@
 
   .logo img {
     width: 7rem;
+    height: auto;
   }
 </style>

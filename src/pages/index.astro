@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro'
 import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
-import MainContent from '../components/layout/MainContent.astro'
 import About from '../components/pages/home/About.astro'
 import WhereYouCanFindUs from '../components/pages/home/WhereYouCanFindUs.astro'
 import heroHome from '../assets/hero-home.jpg'
@@ -19,8 +18,8 @@ const heroImage = await getImage({ src: heroHome })
     url={heroImage.src}
     description="Sourdough baked goods made with local, organic & ancient grains in Western Maine"
   />
-  <MainContent>
+  <main>
     <About />
     <WhereYouCanFindUs />
-  </MainContent>
+  </main>
 </Layout>

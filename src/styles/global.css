@@ -43,7 +43,6 @@ body {
 
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth;
   scrollbar-width: auto;
   scrollbar-color: var(--color-secondary) var(--color-black);
 }
@@ -63,7 +62,17 @@ body[data-overlay-displayed='true'] {
 main {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 10rem 1rem;
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 6rem 1rem;
+  }
+}
+
+main p {
+  text-align: center;
 }
 
 h1 {
@@ -97,6 +106,7 @@ ul {
 
 li {
   list-style-type: none;
+  font-size: var(--size-sm);
 }
 
 input,

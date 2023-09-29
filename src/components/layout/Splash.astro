@@ -103,16 +103,16 @@ import paperTexture from '../../assets/paper-texture.png'
   }
 
   .splash-content img {
-    width: 100%;
-    max-width: 375px;
+    width: clamp(100px, 80%, 375px);
     height: auto;
     margin-bottom: 2rem;
   }
 
   .splash-content p {
     max-width: 525px;
-    margin-bottom: 2rem;
-    font-size: var(--size-base);
+    margin: 0 auto 2rem;
+    font-size: clamp(var(--size-xs), 5vw, var(--size-base));
+    line-height: clamp(var(--size-sm), 8vw, var(--size-lg));
   }
 
   .splace-ctas {
@@ -124,8 +124,9 @@ import paperTexture from '../../assets/paper-texture.png'
   }
 
   .splace-ctas .site-cta {
-    font-size: var(--size-base);
+    font-size: clamp(var(--size-xs), 5vw, var(--size-base));
     color: var(--color-secondary);
+    padding: clamp(0.25rem, 2.5vw, 0.75rem) clamp(0.75rem, 5vw, 1.5rem);
   }
 
   .splace-ctas button.site-cta,
@@ -148,28 +149,21 @@ import paperTexture from '../../assets/paper-texture.png'
     background-color: var(--color-primary);
   }
 
-  .splash-icons {
-    position: absolute;
-    bottom: var(--size-base);
-    right: var(--size-base);
-  }
-
   .splash-icons,
   .splash-icons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
   }
 
   .splash-icons {
-    justify-content: center;
     gap: var(--size-base);
   }
 
   .splash-icons svg {
-    width: var(--size-lg);
-    height: var(--size-lg);
+    width: clamp(var(--size-base), 10vw, var(--size-lg));
+    height: clamp(var(--size-base), 10vw, var(--size-lg));
+    color: var(--color-black);
     transition: var(--transition-normal);
   }
 

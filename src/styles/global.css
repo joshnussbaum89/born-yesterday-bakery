@@ -20,7 +20,7 @@
   --color-primary: #ff5758;
   --color-secondary: #f0f9ff;
   --color-secondary-transparent: #f0f9ffe9;
-  --color-black: #000000;
+  --color-black: #252525;
   --color-white: #ffffff;
   --color-grey: #858585;
   --color-grey-shadow: #8585851a;
@@ -52,6 +52,7 @@ html {
 body {
   font-family: var(--font-baloo-bhaijaan);
   letter-spacing: 0.75px;
+  color: var(--color-black);
 
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
@@ -115,6 +116,7 @@ input,
 textarea,
 button {
   font-family: var(--font-baloo-bhaijaan);
+  color: var(--color-black);
 }
 
 section:not(:last-child) {

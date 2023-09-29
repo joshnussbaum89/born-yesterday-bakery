@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets'
+import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
@@ -15,103 +15,129 @@ const image = await getImage({ src: heroImage })
   <HeroBanner title="Contact Us" url={image.src} />
   <main>
     <section id="contact" class="contact">
-      <SectionHeader title="Let's Chat" />
-      <div class="contact-container">
-        <Image
-          src={heroImage}
-          alt="Vanilla/sumac kouign-Amann filled with homemade labneh topped with an herb olive oil"
-          width={heroImage.width}
-          height={heroImage.height}
-        />
-        <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
+      <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
+        <SectionHeader title="Let's Chat" class="section-header" />
+        <div class="form-field">
+          <input id="name" type="text" name="name" required />
           <label for="name">Name: <span>*</span></label>
-          <input id="name" type="text" name="name" placeholder="Name" required />
+        </div>
+        <div class="form-field">
+          <input id="email" type="email" name="email" required />
           <label for="email">Email: <span>*</span></label>
-          <input id="email" type="email" name="email" placeholder="Email" required />
+        </div>
+        <div class="form-field">
+          <textarea id="message" name="message" cols="30" rows="5" required></textarea>
           <label for="message">Message: <span>*</span></label>
-          <textarea id="message" name="message" cols="30" rows="5" placeholder="message" required
-          ></textarea>
-          <button class="site-cta" type="submit">Send Message</button>
-        </form>
+        </div>
+        <button class="site-cta" type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <div>
+          <h3>Get in Touch</h3>
+          <p><a href="mailto:bornyesterdaybakery@gmail.com">bornyesterdaybakery@gmail.com</a></p>
+          <p><a href="tel:555-555-5555">555-555-5555</a></p>
+          <p><a href="https://www.instagram.com/bornyesterdaybakery/" target="_blank">Instagram ↗</a></p>
+        </div>
+        <div>
+          <h3>Visit Us</h3>
+          <p>555 Main St, Portland, ME 04101</p>
+          <p><a href="https://maps.app.goo.gl/s5jsPFNuUMkmA5as5" target="_blank">View on Map ↗</a></p>
+        </div>
       </div>
     </section>
   </main>
 </Layout>
 
 <style>
-  .contact-container {
-    width: 100%;
-    max-width: 1080px;
-    margin: auto;
-    padding: 2rem 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-  }
-
   @media (min-width: 768px) {
-    .contact-container {
-      grid-template-columns: 1fr 1fr;
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      grid-gap: 6vw;
     }
   }
 
-  .contact-container > p {
-    display: block;
-    max-width: 420px;
-    margin: 0 auto 2rem;
-    text-align: center;
+  .section-header {
+    margin-bottom: 4rem;
   }
 
   @media (min-width: 768px) {
-    .contact-container > p {
-      max-width: 500px;
+    .section-header {
+      text-align: left;
     }
-  }
-
-  .contact-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.25rem;
   }
 
   .form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 4rem;
   }
 
-  .form label,
-  .form input,
-  .form textarea {
-    font-size: var(--size-sm);
+  .form-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
   }
 
-  .form label,
-  .form input,
-  .form textarea {
-    border-radius: 5px;
-  }
-
-  .form input,
-  .form textarea {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 2px solid var(--color-black);
+  .form-field label {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    color: var(--color-grey);
     transition: var(--transition-normal);
   }
 
-  .form label {
-    margin-bottom: 0.25rem;
+  .form-field label,
+  .form-field input,
+  .form-field textarea {
+    font-size: var(--size-sm);
   }
 
-  .form label span {
+  .form-field input,
+  .form-field textarea {
+    padding: 0.5rem;
+    border: 2px solid var(--color-black);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    transition: var(--transition-normal); */
+  }
+  
+  .form-field textarea {
+    resize: vertical;
+  }
+
+  .form-field textarea + label {
+    top: 1.5rem;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus {
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .form-field input:focus + label,
+  .form-field textarea:focus + label {
+    top: -1rem;
+    left: 0;
+    font-size: var(--size-xs);
     color: var(--color-primary);
   }
 
-  .form textarea {
-    margin-bottom: 2rem;
+  .form-field input:valid + label,
+  .form-field textarea:valid + label {
+    top: -1rem;
+    left: 0;
+    font-size: var(--size-xs);
+    color: var(--color-black);
+  }
+
+  .form-field label span {
+    color: var(--color-primary);
   }
 
   .form button {
@@ -125,17 +151,46 @@ const image = await getImage({ src: heroImage })
     }
   }
 
-  .form input:focus,
-  .form textarea:focus {
-    outline: 0;
-    appearance: none;
-    -webkit-appearance: none;
-    -webkit-box-shadow: 0 0 0 2px var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-primary);
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+    height: fit-content;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: var(--color-secondary);
+    box-shadow: 1rem 1rem 4rem var(--color-grey-shadow)
   }
 
-  .form input::placeholder,
-  .form textarea::placeholder {
+  @media (min-width: 768px) {
+    .contact-info {
+      padding: 3rem;
+    }
+  }
+
+  .contact-info h3,
+  .contact-info p {
+    margin-bottom: .75rem;
+    text-align: left;
+  }
+
+  .contact-info h3 {
+    font-size: var(--size-base);
+    font-family: var(--font-bobby-soft);
+  }
+  
+  .contact-info p {
+    font-size: var(--size-xs);
     color: var(--color-grey);
+  }
+
+  .contact-info a {
+    transition: var(--transition-normal);
+  }
+
+  .contact-info a:hover {
+    color: var(--color-black);
   }
 </style>

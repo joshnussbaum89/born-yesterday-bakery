@@ -6,22 +6,30 @@ const currentPath = Astro.url.pathname
 ---
 
 <ul class="desktop-nav" data-current-url={currentPath}>
-  <li><a href="/" aria-label="home">Home</a></li>
-  <li><a href="/menu" aria-label="menu">Menu</a></li>
-  <li class="logo" aria-label="home">
-    <a href="/">
-      <Image src={logo} alt="Born Yesterday Bakery Logo" width={logo.width} height={logo.height} />
+  <li data-path="home"><a href="/">Home</a></li>
+  <li data-path="menu"><a href="/menu">Menu</a></li>
+
+  <li class="logo">
+    <a href="/" aria-label="home">
+      <Image
+        src={logo}
+        alt="Born Yesterday Bakery Logo"
+        width={logo.width}
+        height={logo.height}
+        loading="eager"
+      />
     </a>
   </li>
-  <li><a href="/order" aria-label="order">Order</a></li>
-  <li><a href="/contact" aria-label="contact">Contact</a></li>
+
+  <li data-path="order"><a href="/order">Order</a></li>
+  <li data-path="contact"><a href="/contact">Contact</a></li>
 </ul>
 
 <style>
-  .desktop-nav[data-current-url='/'] li:nth-child(1),
-  .desktop-nav[data-current-url^='/menu'] li:nth-child(2),
-  .desktop-nav[data-current-url^='/order'] li:nth-child(4),
-  .desktop-nav[data-current-url^='/contact'] li:nth-child(5) {
+  .desktop-nav[data-current-url='/'] li[data-path='home'],
+  .desktop-nav[data-current-url^='/menu'] li[data-path='menu'],
+  .desktop-nav[data-current-url^='/order'] li[data-path='order'],
+  .desktop-nav[data-current-url^='/contact'] li[data-path='contact'] {
     color: var(--color-primary);
   }
 

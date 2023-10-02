@@ -4,7 +4,13 @@ import logo from '../../../assets/logo.png'
 ---
 
 <a class="logo" href="/">
-  <Image src={logo} alt="Born Yesterday Bakery Logo" width={logo.width} height={logo.height} />
+  <Image
+    src={logo}
+    alt="Born Yesterday Bakery Logo"
+    width={logo.width}
+    height={logo.height}
+    loading="eager"
+  />
 </a>
 
 <style>

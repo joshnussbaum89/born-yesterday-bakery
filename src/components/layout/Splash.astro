@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import logo from '../../assets/logo.png'
-import paperTexture from '../../assets/paper-texture.png'
+import paperTexture from '../../assets/sprouted-rye.png'
 ---
 
 <div class="splash" style={`background-image: url(${paperTexture.src})`}>
@@ -92,8 +92,7 @@ import paperTexture from '../../assets/paper-texture.png'
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: var(--color-secondary);
-    opacity: 0.5;
+    background-color: var(--color-secondary-transparent);
     z-index: -1;
   }
 
@@ -113,6 +112,7 @@ import paperTexture from '../../assets/paper-texture.png'
     margin: 0 auto 2rem;
     font-size: clamp(var(--size-xs), 5vw, var(--size-base));
     line-height: clamp(var(--size-sm), 8vw, var(--size-lg));
+    color: var(--color-black);
   }
 
   .splace-ctas {

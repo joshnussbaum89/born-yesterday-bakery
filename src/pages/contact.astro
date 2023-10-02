@@ -3,7 +3,7 @@ import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import heroImage from '../assets/hero-contact.jpg'
+import heroImage from '../assets/kouign-amann.jpeg'
 
 const image = await getImage({ src: heroImage })
 ---
@@ -37,12 +37,42 @@ const image = await getImage({ src: heroImage })
           <h3>Get in Touch</h3>
           <p><a href="mailto:bornyesterdaybakery@gmail.com">bornyesterdaybakery@gmail.com</a></p>
           <p><a href="tel:555-555-5555">555-555-5555</a></p>
-          <p><a href="https://www.instagram.com/bornyesterdaybakery/" target="_blank">Instagram ↗</a></p>
+          <p>
+            <a href="https://www.instagram.com/bornyesterdaybakery/" target="_blank"
+              >Instagram
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.22438 17.9287C6.36591 18.0667 6.55676 18.1423 6.75438 18.1387C6.95141 18.1391 7.14109 18.064 7.28438 17.9287L16.6144 8.58994V16.6487C16.6144 17.0629 16.9502 17.3987 17.3644 17.3987C17.5658 17.4042 17.7608 17.3273 17.9042 17.1857C18.0477 17.0442 18.1272 16.8502 18.1244 16.6487V6.9165C18.1504 6.80241 18.1498 6.68188 18.1198 6.56444C18.0519 6.29871 17.8444 6.09121 17.5787 6.02334C17.4612 5.99335 17.3407 5.99275 17.2266 6.01873H7.49438C7.08017 6.01873 6.74438 6.35451 6.74438 6.76873C6.74438 7.18294 7.08017 7.51873 7.49438 7.51873H15.5644L6.22438 16.8587C6.08085 16.9997 6 17.1925 6 17.3937C6 17.5949 6.08085 17.7877 6.22438 17.9287Z"
+                ></path>
+              </svg>
+            </a>
+          </p>
         </div>
         <div>
           <h3>Visit Us</h3>
           <p>555 Main St, Portland, ME 04101</p>
-          <p><a href="https://maps.app.goo.gl/s5jsPFNuUMkmA5as5" target="_blank">View on Map ↗</a></p>
+          <p>
+            <a href="https://maps.app.goo.gl/s5jsPFNuUMkmA5as5" target="_blank"
+              >View on Map
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.22438 17.9287C6.36591 18.0667 6.55676 18.1423 6.75438 18.1387C6.95141 18.1391 7.14109 18.064 7.28438 17.9287L16.6144 8.58994V16.6487C16.6144 17.0629 16.9502 17.3987 17.3644 17.3987C17.5658 17.4042 17.7608 17.3273 17.9042 17.1857C18.0477 17.0442 18.1272 16.8502 18.1244 16.6487V6.9165C18.1504 6.80241 18.1498 6.68188 18.1198 6.56444C18.0519 6.29871 17.8444 6.09121 17.5787 6.02334C17.4612 5.99335 17.3407 5.99275 17.2266 6.01873H7.49438C7.08017 6.01873 6.74438 6.35451 6.74438 6.76873C6.74438 7.18294 7.08017 7.51873 7.49438 7.51873H15.5644L6.22438 16.8587C6.08085 16.9997 6 17.1925 6 17.3937C6 17.5949 6.08085 17.7877 6.22438 17.9287Z"
+                ></path>
+              </svg>
+            </a>
+          </p>
         </div>
       </div>
     </section>
@@ -87,7 +117,7 @@ const image = await getImage({ src: heroImage })
     left: 0.5rem;
     transform: translateY(-50%);
     color: var(--color-grey);
-    transition: var(--transition-normal);
+    transition: all var(--transition-normal);
   }
 
   .form-field label,
@@ -99,14 +129,15 @@ const image = await getImage({ src: heroImage })
   .form-field input,
   .form-field textarea {
     padding: 0.5rem;
-    border: 2px solid var(--color-black);
+    border-bottom: 2px solid var(--color-black);
     border-top: none;
     border-left: none;
     border-right: none;
+    border-radius: 0;
     outline: none;
-    transition: var(--transition-normal); */
+    transition: border-bottom var(--transition-normal);
   }
-  
+
   .form-field textarea {
     resize: vertical;
   }
@@ -161,7 +192,7 @@ const image = await getImage({ src: heroImage })
     margin: 0 auto;
     padding: 1.5rem;
     background-color: var(--color-secondary);
-    box-shadow: 1rem 1rem 4rem var(--color-grey-shadow)
+    box-shadow: 1rem 1rem 4rem var(--color-grey-shadow);
   }
 
   @media (min-width: 768px) {
@@ -172,7 +203,7 @@ const image = await getImage({ src: heroImage })
 
   .contact-info h3,
   .contact-info p {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     text-align: left;
   }
 
@@ -180,17 +211,29 @@ const image = await getImage({ src: heroImage })
     font-size: var(--size-base);
     font-family: var(--font-bobby-soft);
   }
-  
+
   .contact-info p {
     font-size: var(--size-xs);
     color: var(--color-grey);
   }
 
   .contact-info a {
-    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color var(--transition-normal);
   }
 
-  .contact-info a:hover {
+  .contact-info a:hover,
+  .contact-info a:hover svg {
     color: var(--color-black);
+    fill: var(--color-black);
+  }
+
+  .contact-info svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--color-grey);
+    transition: fill var(--transition-normal);
   }
 </style>

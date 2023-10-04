@@ -3,16 +3,16 @@ import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import heroImage from '../assets/kouign-amann.jpeg'
+import kouignAmann from '../assets/kouign-amann.jpeg'
 
-const image = await getImage({ src: heroImage })
+const kouignAmannImage = await getImage({ src: kouignAmann })
 ---
 
 <Layout
   title="Born Yesterday Bakery | Contact"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Contact Us" url={image.src} />
+  <HeroBanner title="Contact Us" url={kouignAmannImage.src} />
   <main>
     <section id="contact" class="contact">
       <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
@@ -56,9 +56,9 @@ const image = await getImage({ src: heroImage })
         </div>
         <div>
           <h3>Visit Us</h3>
-          <p>555 Main St, Portland, ME 04101</p>
+          <p>221 Barker Road Bethel, ME</p>
           <p>
-            <a href="https://maps.app.goo.gl/s5jsPFNuUMkmA5as5" target="_blank"
+            <a href="https://maps.app.goo.gl/Zi8c93ZntshAJUiNA" target="_blank"
               >View on Map
               <svg
                 width="24"

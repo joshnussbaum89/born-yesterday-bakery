@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro'
 import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
-import heroImage from '../assets/apple-galettes.jpeg'
+import appleGalettes from '../assets/apple-galettes.jpeg'
 
-const image = await getImage({ src: heroImage })
+const appleGalettesImage = await getImage({ src: appleGalettes })
 ---
 
 <Layout
@@ -13,7 +13,7 @@ const image = await getImage({ src: heroImage })
 >
   <HeroBanner
     title="Rotating Menu"
-    url={image.src}
+    url={appleGalettesImage.src}
     description="Our menu varies frequently. Check back often to see what we're baking!"
   />
   <main>

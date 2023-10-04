@@ -1,0 +1,127 @@
+---
+import fareShareFood from '../../../assets/fare-share-food.webp'
+import goodFoodBethel from '../../../assets/good-food-bethel.png'
+import thePieHole from '../../../assets/the-pie-hole.jpeg'
+import mountainSocial from '../../../assets/mountain-social.webp'
+import morningGloryFarm from '../../../assets/morning-glory-farm.png'
+---
+
+<section id="info" class="info">
+  <h3>Retailers</h3>
+  <div class="company-logos">
+    <div class="logo">
+      <a
+        href="https://www.goodfoodbethel.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Good Food Store"><img src={goodFoodBethel.src} alt="Good Food Store" /></a
+      >
+    </div>
+    <div class="logo">
+      <a
+        href="https://www.faresharecoop.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fare Share Food Co-op"
+      >
+        <img src={fareShareFood.src} alt="Fare Share Food Co-op" />
+      </a>
+    </div>
+    <div class="logo">
+      <a
+        href="https://www.facebook.com/thepiehole207/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="The Pie Hole"
+      >
+        <img src={thePieHole.src} alt="The Pie Hole" />
+      </a>
+    </div>
+    <div class="logo">
+      <a
+        href="https://www.socialbarharbor.com/mountain-social-bethel"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Mountain Social Kitchen & Bar"
+      >
+        <img src={mountainSocial.src} alt="Mountain Social Kitchen & Bar" />
+      </a>
+    </div>
+    <div class="logo">
+      <a
+        href="https://www.morninggloryfarmmaine.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Morning Glory Farm"
+      >
+        <img src={morningGloryFarm.src} alt="Morning Glory Farm" />
+      </a>
+    </div>
+  </div>
+  <h3>Where to find us</h3>
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.281362319046!2d-70.85805432360414!3d44.4068718033606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb3c367e4526135%3A0x6d53830088590b45!2s221%20Barker%20Rd%2C%20Bethel%2C%20ME%2004217!5e0!3m2!1sen!2sus!4v1696450333368!5m2!1sen!2sus"
+      width="800"
+      height="600"
+      style="border: 0;"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<style>
+  .info h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .info h3 {
+      font-size: var(--size-lg);
+    }
+  }
+
+  .company-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 3rem;
+    margin-bottom: 6rem;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .logo:nth-of-type(2) {
+    background-color: var(--color-black);
+    border-radius: 50%;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .map-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0.25rem;
+  }
+</style>

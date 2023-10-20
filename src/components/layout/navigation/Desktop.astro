@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import logo from '../../../assets/logo.png'
+import logo from '../../../assets/logo.svg'
 
 const currentPath = Astro.url.pathname
 ---
@@ -21,7 +21,7 @@ const currentPath = Astro.url.pathname
     </a>
   </li>
 
-  <li data-path="order"><a href="/order">Order</a></li>
+  <li data-path="order"><a href="https://bornyesterdaybakery.square.site/">Order</a></li>
   <li data-path="contact"><a href="/contact">Contact</a></li>
 </ul>
 
@@ -61,12 +61,11 @@ const currentPath = Astro.url.pathname
   @media (min-width: 1024px) {
     .logo {
       display: block;
-      padding: 0 1rem;
     }
   }
 
   .logo img {
-    width: 14rem;
+    width: 15.25rem;
     height: auto;
   }
 </style>

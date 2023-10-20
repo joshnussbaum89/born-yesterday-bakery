@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import logo from '../../assets/logo.png'
-import paperTexture from '../../assets/sprouted-rye.png'
+import logo from '../../assets/logo.svg'
+import sproutedRyeImage from '../../assets/sprouted-rye.png'
 ---
 
-<div class="splash" style={`background-image: url(${paperTexture.src})`}>
+<div class="splash" style={`background-image: url(${sproutedRyeImage.src})`}>
   <div class="scrim"></div>
   <div class="splash-content">
     <Image
@@ -110,7 +110,6 @@ import paperTexture from '../../assets/sprouted-rye.png'
   .splash-content img {
     width: clamp(100px, 80%, 375px);
     height: auto;
-    margin-bottom: 2rem;
   }
 
   .splash-content p {

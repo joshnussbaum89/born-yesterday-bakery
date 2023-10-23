@@ -12,14 +12,17 @@ const sproutedRyeImage = await getImage({ src: sproutedRye })
   title="Born Yesterday Bakery | Order"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Order" url={sproutedRyeImage.src} description="Order some bread!" />
+  <HeroBanner title="Order" url={sproutedRyeImage.src} />
   <main>
-    <SectionHeader title="Page Content Goes Here" />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus, quibusdam,
-      quia, voluptatem voluptatum quod quos reprehenderit voluptate quas quidem dolorum. Quisquam
-      voluptatibus, quibusdam, quia, voluptatem voluptatum quod quos reprehenderit voluptate quas
-      quidem dolorum.
-    </p>
+    <SectionHeader title="Visit our online store" />
+    <a href="https://bornyesterdaybakery.square.site/" class="site-cta">Order Online</a>
   </main>
 </Layout>
+
+<style>
+  .site-cta {
+    display: block;
+    margin: 0 auto;
+    max-width: fit-content;
+  }
+</style>

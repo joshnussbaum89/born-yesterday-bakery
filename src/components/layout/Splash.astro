@@ -1,7 +1,9 @@
 ---
-import { Image } from 'astro:assets'
+import { Image, getImage } from 'astro:assets'
 import logo from '../../assets/logo.svg'
-import sproutedRyeImage from '../../assets/sprouted-rye.png'
+import sproutedRye from '../../assets/sprouted-rye.png'
+
+const sproutedRyeImage = await getImage({ src: sproutedRye })
 ---
 
 <div class="splash" style={`background-image: url(${sproutedRyeImage.src})`}>
@@ -131,7 +133,6 @@ import sproutedRyeImage from '../../assets/sprouted-rye.png'
   .splace-ctas .site-cta {
     font-size: clamp(var(--size-xs), 5vw, var(--size-base));
     color: var(--color-secondary);
-    padding: clamp(0.25rem, 2.5vw, 0.75rem) clamp(0.75rem, 5vw, 1.5rem);
   }
 
   .splace-ctas button.site-cta,

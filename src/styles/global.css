@@ -52,6 +52,7 @@ html {
 body {
   font-family: var(--font-baloo-bhaijaan);
   letter-spacing: 0.75px;
+  word-break: break-word;
   color: var(--color-black);
 
   /* Experimental, but fallback is default styling */
@@ -83,14 +84,13 @@ h1 {
 }
 
 h3 {
-  font-size: var(--size-base);
+  font-size: clamp(var(--size-base), 7vw, var(--size-lg));
   font-family: var(--font-bobby-soft);
 }
 
 h2,
 h4,
-h5,
-h6 {
+h5 {
   font-family: var(--font-bobby-rough-soft-outline);
 }
 
@@ -98,8 +98,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
   margin: 0;
 }
 
@@ -136,9 +135,10 @@ section:not(:last-child) {
 
 .site-cta {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem 0.6rem;
   color: var(--color-white);
   background-color: var(--color-primary);
+  font-size: clamp(var(--size-sm), 3vw, var(--size-base));
   text-align: center;
   border: 0;
   border-radius: 10rem;

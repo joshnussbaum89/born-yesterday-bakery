@@ -52,7 +52,6 @@ html {
 body {
   font-family: var(--font-baloo-bhaijaan);
   letter-spacing: 0.75px;
-  word-break: break-word;
   color: var(--color-black);
 
   /* Experimental, but fallback is default styling */

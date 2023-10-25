@@ -3,10 +3,17 @@ import { Image, getImage } from 'astro:assets'
 import logo from '../../assets/logo.svg'
 import sproutedRye from '../../assets/sprouted-rye.png'
 
-const sproutedRyeImage = await getImage({ src: sproutedRye })
+// Generate image formats for best browser support
+const { src: sproutedRyeImageAvif } = await getImage({ src: sproutedRye, format: 'avif' })
+const { src: sproutedRyeImageWebp } = await getImage({ src: sproutedRye, format: 'webp' })
+const { src: sproutedRyeImagePng } = await getImage({ src: sproutedRye, format: 'png' })
 ---
 
-<div class="splash" style={`background-image: url(${sproutedRyeImage.src})`}>
+<div
+  class="splash"
+  style={`background-image: url(${sproutedRyeImageAvif}), url(${sproutedRyeImageWebp}), url(${sproutedRyeImagePng})
+`}
+>
   <div class="scrim"></div>
   <div class="splash-content">
     <Image

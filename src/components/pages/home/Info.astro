@@ -1,4 +1,5 @@
 ---
+import { Picture } from 'astro:assets'
 import fareShareFood from '../../../assets/fare-share-food.webp'
 import goodFoodBethel from '../../../assets/good-food-bethel.png'
 import thePieHole from '../../../assets/the-pie-hole.jpeg'
@@ -14,8 +15,10 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
         href="https://www.goodfoodbethel.com/"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Good Food Store"><img src={goodFoodBethel.src} alt="Good Food Store" /></a
+        aria-label="Good Food Store"
       >
+        <Picture src={goodFoodBethel} formats={['avif', 'webp']} alt="Good Food Store" />
+      </a>
     </div>
     <div class="logo">
       <a
@@ -24,7 +27,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
         rel="noopener noreferrer"
         aria-label="Fare Share Food Co-op"
       >
-        <img src={fareShareFood.src} alt="Fare Share Food Co-op" />
+        <Picture src={fareShareFood} formats={['avif', 'webp']} alt="Fare Share Food Co-op" />
       </a>
     </div>
     <div class="logo">
@@ -34,7 +37,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
         rel="noopener noreferrer"
         aria-label="The Pie Hole"
       >
-        <img src={thePieHole.src} alt="The Pie Hole" />
+        <Picture src={thePieHole} formats={['avif', 'webp']} alt="The Pie Hole" />
       </a>
     </div>
     <div class="logo">
@@ -44,7 +47,11 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
         rel="noopener noreferrer"
         aria-label="Mountain Social Kitchen & Bar"
       >
-        <img src={mountainSocial.src} alt="Mountain Social Kitchen & Bar" />
+        <Picture
+          src={mountainSocial}
+          formats={['avif', 'webp']}
+          alt="Mountain Social Kitchen & Bar"
+        />
       </a>
     </div>
     <div class="logo">
@@ -54,7 +61,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
         rel="noopener noreferrer"
         aria-label="Morning Glory Farm"
       >
-        <img src={morningGloryFarm.src} alt="Morning Glory Farm" />
+        <Picture src={morningGloryFarm} formats={['avif', 'webp']} alt="Morning Glory Farm" />
       </a>
     </div>
   </div>

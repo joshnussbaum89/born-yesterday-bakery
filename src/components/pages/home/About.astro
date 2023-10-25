@@ -1,12 +1,12 @@
 ---
-import { Image } from 'astro:assets'
+import { Picture } from 'astro:assets'
 import SectionHeader from '../../text/SectionHeader.astro'
-import aboutOne from '../../../assets/about-1.jpg'
-import aboutTwo from '../../../assets/about-2.jpg'
-import aboutThree from '../../../assets/about-3.jpg'
+import chedderBouleImage from '../../../assets/chedder-boule.jpg'
+import sproutedGrainsImage from '../../../assets/sprouted-grains.jpg'
+import milkBreadImage from '../../../assets/milk-bread.jpg'
 ---
 
-<section id="about">
+<section id="about" class="about">
   <SectionHeader title="About Us" />
   <p>
     Born Yesterday is a small bakery in Western Maine making sourdough baked goods, with a focus on
@@ -14,14 +14,9 @@ import aboutThree from '../../../assets/about-3.jpg'
     using ancient grains & local foods.
   </p>
   <div class="image-container">
-    <Image src={aboutOne} alt="Cheesy Bread" width={aboutOne.width} height={aboutOne.height} />
-    <Image
-      src={aboutTwo}
-      alt="Organic, Whole Grains"
-      width={aboutTwo.width}
-      height={aboutTwo.height}
-    />
-    <Image src={aboutThree} alt="Milk Bread" width={aboutThree.width} height={aboutThree.height} />
+    <Picture src={chedderBouleImage} formats={['avif', 'webp']} alt="Chedder Boule" />
+    <Picture src={sproutedGrainsImage} formats={['avif', 'webp']} alt="Sprouted Grains" />
+    <Picture src={milkBreadImage} formats={['avif', 'webp']} alt="Milk Bread" />
   </div>
   <a href="/menu" class="site-cta">See Our Menu</a>
   <div class="hours">
@@ -39,54 +34,43 @@ import aboutThree from '../../../assets/about-3.jpg'
 </section>
 
 <style>
-  #about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .about {
     border-bottom: 1px solid var(--color-grey);
   }
 
-  #about p {
+  .about p {
+    margin: 0 auto 2rem;
     max-width: 750px;
-    margin-bottom: 2rem;
-  }
-
-  #about a {
-    margin-bottom: 4rem;
   }
 
   .image-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     margin-bottom: 4rem;
   }
 
   @media (min-width: 768px) {
     .image-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   .image-container img {
     width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0.25rem;
   }
 
-  @media (min-width: 768px) {
-    .image-container img {
-      width: 32%;
-      margin-bottom: 0;
-    }
-  }
-
-  .image-container img:last-child {
-    margin-bottom: 0;
+  .about .site-cta {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 4rem;
   }
 
   .hours {
-    max-width: 450px;
+    max-width: 260px;
     margin: 0 auto 4rem;
   }
 

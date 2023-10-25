@@ -1,18 +1,15 @@
 ---
-import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import kouignAmann from '../assets/kouign-amann.jpeg'
-
-const kouignAmannImage = await getImage({ src: kouignAmann })
+import kouignAmannImage from '../assets/kouign-amann.jpeg'
 ---
 
 <Layout
   title="Born Yesterday Bakery | Contact"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Contact Us" url={kouignAmannImage.src} />
+  <HeroBanner title="Contact Us" image={kouignAmannImage} />
   <main>
     <section id="contact" class="contact">
       <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">

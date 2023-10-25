@@ -1,18 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import sproutedRye from '../assets/sprouted-rye.jpg'
-
-const sproutedRyeImage = await getImage({ src: sproutedRye })
+import sproutedRyeImage from '../assets/sprouted-rye.jpg'
 ---
 
 <Layout
   title="Born Yesterday Bakery | Order"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Order" url={sproutedRyeImage.src} />
+  <HeroBanner title="Order" image={sproutedRyeImage} />
   <main>
     <SectionHeader title="Visit our online store" />
     <a href="https://bornyesterdaybakery.square.site/" class="site-cta">Order Now</a>

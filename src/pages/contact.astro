@@ -15,15 +15,16 @@ import kouignAmannImage from '../assets/kouign-amann.jpeg'
       <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
         <SectionHeader title="Let's Chat" class="section-header" />
         <div class="form-field">
-          <input id="name" type="text" name="name" required />
+          <input id="name" type="text" name="name" placeholder=" " required />
           <label for="name">Name: <span>*</span></label>
         </div>
         <div class="form-field">
-          <input id="email" type="email" name="email" required />
+          <input id="email" type="email" name="email" placeholder=" " required />
           <label for="email">Email: <span>*</span></label>
         </div>
         <div class="form-field">
-          <textarea id="message" name="message" cols="30" rows="5" required></textarea>
+          <textarea id="message" name="message" cols="30" rows="5" placeholder=" " required
+          ></textarea>
           <label for="message">Message: <span>*</span></label>
         </div>
         <button class="site-cta" type="submit">Send Message</button>
@@ -139,13 +140,23 @@ import kouignAmannImage from '../assets/kouign-amann.jpeg'
     resize: vertical;
   }
 
-  .form-field textarea + label {
-    top: 1.5rem;
-  }
-
   .form-field input:focus,
   .form-field textarea:focus {
     border-bottom: 2px solid var(--color-primary);
+  }
+
+  .form-field input:not(:placeholder-shown):valid,
+  .form-field textarea:not(:placeholder-shown):valid {
+    border-color: var(--color-black);
+  }
+
+  .form-field input:not(:placeholder-shown):not(:valid),
+  .form-field textarea:not(:placeholder-shown):not(:valid) {
+    border-color: var(--color-primary);
+  }
+
+  .form-field textarea + label {
+    top: 1.5rem;
   }
 
   .form-field input:focus + label,
@@ -162,6 +173,18 @@ import kouignAmannImage from '../assets/kouign-amann.jpeg'
     left: 0;
     font-size: var(--size-xs);
     color: var(--color-black);
+  }
+
+  .form-field input:not(:placeholder-shown) + label,
+  .form-field textarea:not(:placeholder-shown) + label {
+    top: -1rem;
+    left: 0;
+    font-size: var(--size-xs);
+  }
+
+  .form-field input:not(:placeholder-shown):not(:valid) + label,
+  .form-field textarea:not(:placeholder-shown):not(:valid) + label {
+    color: var(--color-primary);
   }
 
   .form-field label span {

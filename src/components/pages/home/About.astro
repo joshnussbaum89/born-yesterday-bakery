@@ -13,13 +13,13 @@ import milkBreadImage from '../../../assets/milk-bread.jpg'
     organic, local and whole grains. We see bread as a handmade product that is wildly crafted,
     using ancient grains & local foods.
   </p>
-  <div class="image-container">
+  <div class="about-images">
     <Picture src={chedderBouleImage} formats={['avif', 'webp']} alt="Chedder Boule" />
     <Picture src={sproutedGrainsImage} formats={['avif', 'webp']} alt="Sprouted Grains" />
     <Picture src={milkBreadImage} formats={['avif', 'webp']} alt="Milk Bread" />
   </div>
   <a href="/menu" class="site-cta">See Our Menu</a>
-  <div class="hours">
+  <div class="about-hours">
     <h3>Hours</h3>
     <ul>
       <li>Monday <span>10am - 3pm</span></li>
@@ -43,7 +43,7 @@ import milkBreadImage from '../../../assets/milk-bread.jpg'
     max-width: 750px;
   }
 
-  .image-container {
+  .about-images {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -51,12 +51,12 @@ import milkBreadImage from '../../../assets/milk-bread.jpg'
   }
 
   @media (min-width: 768px) {
-    .image-container {
+    .about-images {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  .image-container img {
+  .about-images img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -69,17 +69,17 @@ import milkBreadImage from '../../../assets/milk-bread.jpg'
     margin: 0 auto 4rem;
   }
 
-  .hours {
+  .about-hours {
     max-width: 260px;
     margin: 0 auto 4rem;
   }
 
-  .hours h3 {
+  .about-hours h3 {
     margin-bottom: 2rem;
     text-align: center;
   }
 
-  .hours li {
+  .about-hours li {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -88,7 +88,7 @@ import milkBreadImage from '../../../assets/milk-bread.jpg'
     line-height: 1;
   }
 
-  .hours li span {
+  .about-hours li span {
     font-size: var(--size-xs);
     text-align: right;
   }

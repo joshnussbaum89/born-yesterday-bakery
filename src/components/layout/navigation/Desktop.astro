@@ -1,6 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../../../assets/logo.svg'
+import DesktopLogo from '../../logo/Desktop.astro'
 
 const currentPath = Astro.url.pathname
 ---
@@ -10,15 +9,7 @@ const currentPath = Astro.url.pathname
   <li data-path="menu"><a href="/menu">Menu</a></li>
 
   <li class="logo">
-    <a href="/" aria-label="home">
-      <Image
-        src={logo}
-        alt="Born Yesterday Bakery Logo"
-        width={logo.width}
-        height={logo.height}
-        loading="eager"
-      />
-    </a>
+    <DesktopLogo />
   </li>
 
   <li data-path="order"><a href="https://bornyesterdaybakery.square.site/">Order</a></li>
@@ -62,10 +53,5 @@ const currentPath = Astro.url.pathname
     .logo {
       display: block;
     }
-  }
-
-  .logo img {
-    width: 15.25rem;
-    height: auto;
   }
 </style>

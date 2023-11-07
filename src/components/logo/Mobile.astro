@@ -1,16 +1,10 @@
 ---
 import { Image } from 'astro:assets'
-import logo from '../../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 ---
 
-<a class="logo" href="/">
-  <Image
-    src={logo}
-    alt="Born Yesterday Bakery Logo"
-    width={logo.width}
-    height={logo.height}
-    loading="eager"
-  />
+<a class="logo" href="/" aria-label="home">
+  <Image src={logo} alt="Born Yesterday Bakery Logo" loading="eager" />
 </a>
 
 <style>
@@ -22,7 +16,7 @@ import logo from '../../../assets/logo.png'
     .logo {
       display: flex;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
   }
 
@@ -33,7 +27,7 @@ import logo from '../../../assets/logo.png'
   }
 
   .logo img {
-    width: 7rem;
+    width: 7.75rem;
     height: auto;
   }
 </style>

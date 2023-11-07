@@ -11,14 +11,8 @@ const { title, class: className } = Astro.props
 
 <style>
   h2 {
-    margin: 1rem 0 2rem;
-    font-size: var(--size-lg);
+    margin: 0 0 2rem;
+    font-size: clamp(var(--size-lg), 7vw, var(--size-xl));
     text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    h2 {
-      font-size: var(--size-xl);
-    }
   }
 </style>

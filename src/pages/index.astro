@@ -1,12 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { getImage } from 'astro:assets'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import About from '../components/pages/home/About.astro'
 import Info from '../components/pages/home/Info.astro'
-import anadama from '../assets/anadama.jpg'
-
-const anadamaImage = await getImage({ src: anadama })
+import anadamaImage from '../assets/anadama.jpg'
 ---
 
 <Layout
@@ -15,7 +12,7 @@ const anadamaImage = await getImage({ src: anadama })
 >
   <HeroBanner
     title="Born Yesterday Bakery"
-    url={anadamaImage.src}
+    image={anadamaImage}
     description="Sourdough baked goods made with local, organic & ancient grains in Western Maine"
   />
   <main>

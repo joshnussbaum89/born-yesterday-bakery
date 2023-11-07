@@ -1,42 +1,39 @@
 ---
-import { getImage } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
-import kouignAmann from '../assets/kouign-amann.jpeg'
-
-const kouignAmannImage = await getImage({ src: kouignAmann })
+import kouignAmannImage from '../assets/kouign-amann.jpeg'
 ---
 
 <Layout
   title="Born Yesterday Bakery | Contact"
   description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
 >
-  <HeroBanner title="Contact Us" url={kouignAmannImage.src} />
+  <HeroBanner title="Contact Us" image={kouignAmannImage} />
   <main>
     <section id="contact" class="contact">
       <form method="POST" class="form" name="contactForm" action="/success" data-netlify="true">
         <SectionHeader title="Let's Chat" class="section-header" />
         <div class="form-field">
-          <input id="name" type="text" name="name" required />
+          <input id="name" type="text" name="name" placeholder=" " required />
           <label for="name">Name: <span>*</span></label>
         </div>
         <div class="form-field">
-          <input id="email" type="email" name="email" required />
+          <input id="email" type="email" name="email" placeholder=" " required />
           <label for="email">Email: <span>*</span></label>
         </div>
         <div class="form-field">
-          <textarea id="message" name="message" cols="30" rows="5" required></textarea>
+          <textarea id="message" name="message" cols="30" rows="5" placeholder=" " required
+          ></textarea>
           <label for="message">Message: <span>*</span></label>
         </div>
         <button class="site-cta" type="submit">Send Message</button>
       </form>
 
-      <div class="contact-info">
+      <aside class="contact-info">
         <div>
           <h3>Get in Touch</h3>
           <p><a href="mailto:bornyesterdaybakery@gmail.com">bornyesterdaybakery@gmail.com</a></p>
-          <p><a href="tel:555-555-5555">555-555-5555</a></p>
           <p>
             <a href="https://www.instagram.com/bornyesterdaybakery/" target="_blank"
               >Instagram
@@ -74,7 +71,7 @@ const kouignAmannImage = await getImage({ src: kouignAmann })
             </a>
           </p>
         </div>
-      </div>
+      </aside>
     </section>
   </main>
 </Layout>
@@ -142,13 +139,23 @@ const kouignAmannImage = await getImage({ src: kouignAmann })
     resize: vertical;
   }
 
-  .form-field textarea + label {
-    top: 1.5rem;
-  }
-
   .form-field input:focus,
   .form-field textarea:focus {
     border-bottom: 2px solid var(--color-primary);
+  }
+
+  .form-field input:not(:placeholder-shown):valid,
+  .form-field textarea:not(:placeholder-shown):valid {
+    border-color: var(--color-black);
+  }
+
+  .form-field input:not(:placeholder-shown):not(:valid),
+  .form-field textarea:not(:placeholder-shown):not(:valid) {
+    border-color: var(--color-primary);
+  }
+
+  .form-field textarea + label {
+    top: 1.5rem;
   }
 
   .form-field input:focus + label,
@@ -165,6 +172,18 @@ const kouignAmannImage = await getImage({ src: kouignAmann })
     left: 0;
     font-size: var(--size-xs);
     color: var(--color-black);
+  }
+
+  .form-field input:not(:placeholder-shown) + label,
+  .form-field textarea:not(:placeholder-shown) + label {
+    top: -1rem;
+    left: 0;
+    font-size: var(--size-xs);
+  }
+
+  .form-field input:not(:placeholder-shown):not(:valid) + label,
+  .form-field textarea:not(:placeholder-shown):not(:valid) + label {
+    color: var(--color-primary);
   }
 
   .form-field label span {

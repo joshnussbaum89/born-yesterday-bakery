@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css'
-import Splash from '../components/layout/Splash.astro'
+import Splash from '../components/Splash.astro'
 import Navigation from '../components/layout/navigation/Navigation.astro'
 import Footer from '../components/layout/Footer.astro'
 
@@ -11,7 +11,7 @@ interface Props {
 
 const { title, description } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const socialImageURL = new URL('/logo.png', canonicalURL)
+const socialImageURL = new URL('/sprouted-rye.png', canonicalURL)
 ---
 
 <!doctype html>
@@ -44,23 +44,32 @@ const socialImageURL = new URL('/logo.png', canonicalURL)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
 
-    <!-- Fonts, Favicon & Theme -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff5758" />
+    <meta name="msapplication-TileColor" content="#f0f9ff" />
+    <meta name="theme-color" content="#f0f9ff" />
   </head>
   <body data-overlay-displayed="false">
     <Splash />
-    <!-- <header>
+    <header>
       <Navigation />
     </header>
     <div class="content-wrapper">
       <slot />
       <Footer />
-    </div> -->
+    </div>
   </body>
 </html>
 

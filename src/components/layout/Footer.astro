@@ -1,11 +1,21 @@
-<footer id="footer">
+<footer id="footer" class="footer">
   <div class="footer-info">
     <p>
       &copy; {new Date().getFullYear()} Born Yesterday Bakery
     </p>
     <p>
       Website by <a href="http://wavelandweb.com" target="_blank" rel="noopener noreferrer"
-        >Wave Land Web</a
+        >Wave Land Web <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.22438 17.9287C6.36591 18.0667 6.55676 18.1423 6.75438 18.1387C6.95141 18.1391 7.14109 18.064 7.28438 17.9287L16.6144 8.58994V16.6487C16.6144 17.0629 16.9502 17.3987 17.3644 17.3987C17.5658 17.4042 17.7608 17.3273 17.9042 17.1857C18.0477 17.0442 18.1272 16.8502 18.1244 16.6487V6.9165C18.1504 6.80241 18.1498 6.68188 18.1198 6.56444C18.0519 6.29871 17.8444 6.09121 17.5787 6.02334C17.4612 5.99335 17.3407 5.99275 17.2266 6.01873H7.49438C7.08017 6.01873 6.74438 6.35451 6.74438 6.76873C6.74438 7.18294 7.08017 7.51873 7.49438 7.51873H15.5644L6.22438 16.8587C6.08085 16.9997 6 17.1925 6 17.3937C6 17.5949 6.08085 17.7877 6.22438 17.9287Z"
+          ></path>
+        </svg></a
       >
     </p>
   </div>
@@ -60,7 +70,7 @@
 </footer>
 
 <style>
-  footer {
+  .footer {
     padding: 2rem;
     text-align: center;
     color: var(--color-secondary);
@@ -68,7 +78,7 @@
   }
 
   @media (min-width: 768px) {
-    footer {
+    .footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -84,20 +94,50 @@
 
   .footer-info p:nth-child(2) {
     font-size: var(--size-xs);
+    transition: color var(--transition-normal);
   }
 
-  .footer-icons,
-  .footer-icons a {
-    display: flex;
+  .footer-info a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-normal);
+  }
+
+  .footer-info a:hover {
+    color: var(--color-black);
+  }
+
+  .footer-info svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--color-white);
+    transition: fill var(--transition-normal);
+  }
+
+  .footer-info a:hover svg {
+    fill: var(--color-black);
   }
 
   .footer-icons {
+    display: flex;
     justify-content: center;
     gap: 1.5rem;
+  }
+
+  .footer-icons a {
+    display: flex;
   }
 
   .footer-icons svg {
     width: var(--size-base);
     height: var(--size-base);
+    stroke: var(--color-secondary);
+    transition: all var(--transition-normal);
+  }
+
+  .footer-icons a:hover svg {
+    transform: scale(1.05);
+    stroke: var(--color-black);
   }
 </style>

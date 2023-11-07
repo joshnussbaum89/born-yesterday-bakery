@@ -1,16 +1,25 @@
 ---
+import { getImage } from 'astro:assets'
 import PageHeader from '../text/PageHeader.astro'
 
 export interface Props {
   title: string
   description?: string
-  url: string
+  image: ImageMetadata
 }
 
-const { title, description, url } = Astro.props
+const { title, description, image } = Astro.props
+
+// Generate image formats for best browser support
+const { src: backgroundImageAvif } = await getImage({ src: image, format: 'avif' })
+const { src: backgroundImageWebp } = await getImage({ src: image, format: 'webp' })
+const { src: backgroundImagePng } = await getImage({ src: image, format: 'png' })
 ---
 
-<div class="banner" style={`background-image: url(${url});`}>
+<div
+  class="banner"
+  style={`background-image: url(${backgroundImageAvif}), url(${backgroundImageWebp}), url(${backgroundImagePng});`}
+>
   <div class="scrim"></div>
   <PageHeader title={title} />
   {description && <p>{description}</p>}

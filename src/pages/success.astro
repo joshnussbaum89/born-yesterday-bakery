@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro'
+import HeroBanner from '../components/layout/HeroBanner.astro'
+import SectionHeader from '../components/text/SectionHeader.astro'
+import breadSunflowerImage from '../assets/bread-sunflower.jpeg'
+---
+
+<Layout
+  title="Born Yesterday Bakery | Success"
+  description="Born Yesterday Bakery is a bakery located in Maine, specializing in sourdough bread"
+>
+  <HeroBanner title="Success" image={breadSunflowerImage} />
+  <main>
+    <section id="success" class="success">
+      <SectionHeader title="Thank you for your message" class="section-header" />
+      <p>We will get back to you as soon as we can!</p>
+      <a class="site-cta" href="/">Back to home</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .success p {
+    margin-bottom: 2rem;
+  }
+
+  .success .site-cta {
+    display: block;
+    max-width: fit-content;
+    margin: 0 auto;
+  }
+</style>

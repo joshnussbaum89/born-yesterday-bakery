@@ -3,15 +3,14 @@ import { Image, getImage } from 'astro:assets'
 import logo from '../assets/logo.svg'
 import sproutedRye from '../assets/sprouted-rye.png'
 
-// Generate image formats for best browser support
-const { src: sproutedRyeImageAvif } = await getImage({ src: sproutedRye, format: 'avif' })
+// Creating multiple image file types causes multiple network requests to load each image
+// For now, we are using WEBP only to reduce the number of requests
 const { src: sproutedRyeImageWebp } = await getImage({ src: sproutedRye, format: 'webp' })
-const { src: sproutedRyeImagePng } = await getImage({ src: sproutedRye, format: 'png' })
 ---
 
 <div
   class="splash"
-  style={`background-image: url(${sproutedRyeImageAvif}), url(${sproutedRyeImageWebp}), url(${sproutedRyeImagePng})
+  style={`background-image: url(${sproutedRyeImageWebp});
 `}
 >
   <div class="scrim"></div>
@@ -27,6 +26,7 @@ const { src: sproutedRyeImagePng } = await getImage({ src: sproutedRye, format: 
         href="https://www.instagram.com/bornyesterdaybakery/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Instagram"
       >
         <svg
           stroke="currentColor"
@@ -50,7 +50,7 @@ const { src: sproutedRyeImagePng } = await getImage({ src: sproutedRye, format: 
             y2="7.501"></line></svg
         >
       </a>
-      <a href="mailto:bornyesterdaybakery@gmail.com">
+      <a href="mailto:bornyesterdaybakery@gmail.com" aria-label="Email">
         <svg
           stroke="currentColor"
           fill="none"

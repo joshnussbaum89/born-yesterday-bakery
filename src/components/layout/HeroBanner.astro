@@ -10,16 +10,12 @@ export interface Props {
 
 const { title, description, image } = Astro.props
 
-// Generate image formats for best browser support
-const { src: backgroundImageAvif } = await getImage({ src: image, format: 'avif' })
+// Creating multiple image file types causes multiple network requests to load each image
+// For now, we are using WEBP only to reduce the number of requests
 const { src: backgroundImageWebp } = await getImage({ src: image, format: 'webp' })
-const { src: backgroundImagePng } = await getImage({ src: image, format: 'png' })
 ---
 
-<div
-  class="banner"
-  style={`background-image: url(${backgroundImageAvif}), url(${backgroundImageWebp}), url(${backgroundImagePng});`}
->
+<div class="banner" style={`background-image: url(${backgroundImageWebp});`}>
   <div class="scrim"></div>
   <PageHeader title={title} />
   {description && <p>{description}</p>}

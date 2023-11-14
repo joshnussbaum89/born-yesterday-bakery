@@ -57,12 +57,7 @@ const { src: backgroundImageWebp } = await getImage({ src: image, format: 'webp'
     max-width: 500px;
     z-index: 1;
     padding: 0 1rem;
+    font-size: clamp(var(--size-sm), 5vw, var(--size-base));
     text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    .banner p {
-      font-size: var(--size-base);
-    }
   }
 </style>

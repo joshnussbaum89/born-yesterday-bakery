@@ -2,71 +2,55 @@
 import { Picture } from 'astro:assets'
 import fareShareFood from '../../../assets/fare-share-food.webp'
 import goodFoodBethel from '../../../assets/good-food-bethel.png'
-import thePieHole from '../../../assets/the-pie-hole.jpeg'
 import mountainSocial from '../../../assets/mountain-social.webp'
 import morningGloryFarm from '../../../assets/morning-glory-farm.png'
+
+const companyData = [
+  {
+    name: 'Good Food Store',
+    url: 'https://www.goodfoodbethel.com/',
+    logo: goodFoodBethel,
+  },
+  {
+    name: 'Fare Share Food Co-op',
+    url: 'https://www.faresharecoop.org/',
+    logo: fareShareFood,
+  },
+  {
+    name: 'Mountain Social Kitchen & Bar',
+    url: 'https://www.socialbarharbor.com/mountain-social-bethel',
+    logo: mountainSocial,
+  },
+  {
+    name: 'Morning Glory Farm',
+    url: 'https://www.morninggloryfarmmaine.com/',
+    logo: morningGloryFarm,
+  },
+]
 ---
 
 <section id="info" class="info">
   <h3>Retailers</h3>
-  <div class="company-logos">
-    <div class="logo">
-      <a
-        href="https://www.goodfoodbethel.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Good Food Store"
-      >
-        <Picture src={goodFoodBethel} formats={['avif', 'webp']} alt="Good Food Store" />
-      </a>
-    </div>
-    <div class="logo">
-      <a
-        href="https://www.faresharecoop.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Fare Share Food Co-op"
-      >
-        <Picture src={fareShareFood} formats={['avif', 'webp']} alt="Fare Share Food Co-op" />
-      </a>
-    </div>
-    <div class="logo">
-      <a
-        href="https://www.facebook.com/thepiehole207/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="The Pie Hole"
-      >
-        <Picture src={thePieHole} formats={['avif', 'webp']} alt="The Pie Hole" />
-      </a>
-    </div>
-    <div class="logo">
-      <a
-        href="https://www.socialbarharbor.com/mountain-social-bethel"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Mountain Social Kitchen & Bar"
-      >
-        <Picture
-          src={mountainSocial}
-          formats={['avif', 'webp']}
-          alt="Mountain Social Kitchen & Bar"
-        />
-      </a>
-    </div>
-    <div class="logo">
-      <a
-        href="https://www.morninggloryfarmmaine.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Morning Glory Farm"
-      >
-        <Picture src={morningGloryFarm} formats={['avif', 'webp']} alt="Morning Glory Farm" />
-      </a>
-    </div>
+  <div class="info-logos">
+    {
+      companyData.map((company) => {
+        return (
+          <div class="logo">
+            <a
+              href={company.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={company.name}
+            >
+              <Picture src={company.logo} formats={['avif', 'webp']} alt={company.name} />
+            </a>
+          </div>
+        )
+      })
+    }
   </div>
   <h3>Where to find us</h3>
-  <div class="map-wrapper">
+  <div class="info-map">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.281362319046!2d-70.85805432360414!3d44.4068718033606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb3c367e4526135%3A0x6d53830088590b45!2s221%20Barker%20Rd%2C%20Bethel%2C%20ME%2004217!5e0!3m2!1sen!2sus!4v1696450333368!5m2!1sen!2sus"
       title="Google Map of 221 Barker Rd, Bethel, ME 04217"
@@ -90,7 +74,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
     }
   }
 
-  .company-logos {
+  .info-logos {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -115,7 +99,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
     object-fit: contain;
   }
 
-  .map-wrapper {
+  .info-map {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
@@ -123,7 +107,7 @@ import morningGloryFarm from '../../../assets/morning-glory-farm.png'
     width: 100%;
   }
 
-  .map-wrapper iframe {
+  .info-map iframe {
     position: absolute;
     top: 0;
     left: 0;

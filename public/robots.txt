@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bornyesterdaybakery.com/sitemap-0.xml

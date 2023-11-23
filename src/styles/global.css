@@ -25,6 +25,7 @@
   --color-black: #252525;
   --color-white: #ffffff;
   --color-grey: #858585;
+  --color-grey-light: #e0e0e0;
   --color-grey-shadow: #8585851a;
 
   --size-xxs: 0.75rem;
@@ -37,6 +38,8 @@
 
   --transition-normal: 0.2s ease-in-out;
   --transition-long: 0.5s ease-in-out;
+
+  --box-shadow-normal: 1rem 1rem 4rem var(--color-grey-shadow);
 }
 
 html,
@@ -55,6 +58,9 @@ body {
   font-family: var(--font-baloo-bhaijaan);
   letter-spacing: 0.75px;
   color: var(--color-black);
+
+  /* TODO: style cursor? */
+  /* cursor: url('example-cursor.jpg'), auto; */
 
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
@@ -160,7 +166,7 @@ a:hover svg {
 
 .site-cta:hover {
   transform: scale(1.01);
-  box-shadow: 1rem 1rem 4rem var(--color-grey-shadow);
+  box-shadow: var(--box-shadow-normal);
 }
 
 .site-cta:active {

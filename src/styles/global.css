@@ -59,9 +59,6 @@ body {
   letter-spacing: 0.75px;
   color: var(--color-black);
 
-  /* TODO: style cursor? */
-  /* cursor: url('example-cursor.jpg'), auto; */
-
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
 }

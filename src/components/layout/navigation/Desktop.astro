@@ -5,15 +5,15 @@ const currentPath = Astro.url.pathname
 ---
 
 <ul class="desktop-nav" data-current-url={currentPath}>
-  <li data-path="home"><a href="/">Home</a></li>
-  <li data-path="menu"><a href="/menu">Menu</a></li>
+  <li data-path="home"><a href="/" data-astro-prefetch>Home</a></li>
+  <li data-path="menu"><a href="/menu" data-astro-prefetch>Menu</a></li>
 
   <li class="logo">
     <DesktopLogo />
   </li>
 
   <li data-path="order"><a href="https://bornyesterdaybakery.square.site/">Order</a></li>
-  <li data-path="contact"><a href="/contact">Contact</a></li>
+  <li data-path="contact"><a href="/contact" data-astro-prefetch>Contact</a></li>
 </ul>
 
 <style>

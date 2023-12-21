@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   site: 'https://bornyesterdaybakery.com',
   scopedStyleStrategy: 'class',
+  prefetch: true,
   build: {
     inlineStylesheets: 'always',
   },

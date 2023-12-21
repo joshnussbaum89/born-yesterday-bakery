@@ -1,61 +1,30 @@
-<div id="hamburger" class="hamburger">
+---
+import Icon from 'astro-icon'
+---
+
+<button id="hamburger" class="hamburger" aria-expanded="false">
   <div class="top"></div>
   <div class="middle"></div>
   <div class="bottom"></div>
-</div>
+</button>
 
 <div class="mobile-nav-overlay">
   <ul>
-    <li><a href="/" aria-label="home">Home</a></li>
-    <li><a href="/menu" aria-label="menu">Menu</a></li>
+    <li><a href="/" aria-label="home" data-astro-prefetch>Home</a></li>
+    <li><a href="/menu" aria-label="menu" data-astro-prefetch>Menu</a></li>
     <li><a href="https://bornyesterdaybakery.square.site/" aria-label="order">Order</a></li>
-    <li><a href="/contact" aria-label="contact">Contact</a></li>
+    <li><a href="/contact" aria-label="contact" data-astro-prefetch>Contact</a></li>
     <div class="icons">
       <a
         href="https://www.instagram.com/bornyesterdaybakery/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Instagram"
       >
-        <svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
-            x="4"
-            y="4"
-            width="16"
-            height="16"
-            rx="4"></rect><circle cx="12" cy="12" r="3"></circle><line
-            x1="16.5"
-            y1="7.5"
-            x2="16.5"
-            y2="7.501"></line></svg
-        >
+        <Icon name="instagram" />
       </a>
-      <a href="mailto:bornyesterdaybakery@gmail.com">
-        <svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          ><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><rect
-            x="3"
-            y="5"
-            width="18"
-            height="14"
-            rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg
-        >
+      <a href="mailto:bornyesterdaybakery@gmail.com" aria-label="Email">
+        <Icon name="email" />
       </a>
     </div>
   </ul>
@@ -71,6 +40,8 @@
     width: 2rem;
     height: 2rem;
     z-index: 4;
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
   }
 
@@ -195,6 +166,7 @@
     overlayDisplayed = !overlayDisplayed
     body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
     hamburger?.classList.toggle('active')
+    hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
   }
 
   function handleMobileNavigationOnResize() {
@@ -202,6 +174,7 @@
       overlayDisplayed = false
       body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
       hamburger?.classList.remove('active')
+      hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
     }
   }
 
@@ -209,7 +182,15 @@
     overlayDisplayed = false
     body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
     hamburger?.classList.remove('active')
+    hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
   }
+
+  // Accessibility
+  body?.addEventListener('keyup', (event) => {
+    if (event.code === 'Escape' && overlayDisplayed) {
+      handleMobileNavigationOnClick()
+    }
+  })
 
   hamburger?.addEventListener('click', handleMobileNavigationOnClick)
   window.addEventListener('resize', handleMobileNavigationOnResize)

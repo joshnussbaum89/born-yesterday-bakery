@@ -1,10 +1,9 @@
 ---
-import { Image } from 'astro:assets'
-import logo from '../../assets/logo.svg'
+import Icon from 'astro-icon'
 ---
 
-<a class="logo" href="/" aria-label="home">
-  <Image src={logo} alt="Born Yesterday Bakery Logo" loading="eager" />
+<a class="logo" href="/" title="home" aria-label="home" data-astro-prefetch>
+  <Icon name="logo" />
 </a>
 
 <style>
@@ -26,7 +25,7 @@ import logo from '../../assets/logo.svg'
     }
   }
 
-  .logo img {
+  .logo svg {
     width: 7.75rem;
     height: auto;
   }

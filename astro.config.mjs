@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
+import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,5 +15,6 @@ export default defineConfig({
       filter: (page) => page !== 'https://bornyesterdaybakery.com/success/',
       lastmod: new Date(),
     }),
+    icon(),
   ],
 })

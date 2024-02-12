@@ -140,12 +140,7 @@ section:not(:last-child) {
 svg {
   width: clamp(var(--size-base), 10vw, var(--size-lg));
   height: clamp(var(--size-base), 10vw, var(--size-lg));
-  color: var(--color-black);
   transition: var(--transition-normal);
-}
-
-a:hover svg {
-  color: var(--color-primary);
 }
 
 .site-cta {

@@ -1,6 +1,6 @@
 ---
 import { getImage } from 'astro:assets'
-import Icon from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import sproutedRye from '../assets/sprouted-rye.png'
 
 // Creating multiple image file types causes multiple network requests to load each image
@@ -125,6 +125,10 @@ const { src: sproutedRyeImageWebp } = await getImage({ src: sproutedRye, format:
 
   .splash-icons {
     gap: var(--size-base);
+  }
+
+  .splash-icons a:hover svg {
+    color: var(--color-primary);
   }
 </style>
 

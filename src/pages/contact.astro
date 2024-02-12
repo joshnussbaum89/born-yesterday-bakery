@@ -1,5 +1,5 @@
 ---
-import Icon from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 import Layout from '../layouts/Layout.astro'
 import HeroBanner from '../components/layout/HeroBanner.astro'
 import SectionHeader from '../components/text/SectionHeader.astro'
@@ -229,19 +229,16 @@ import kouignAmannImage from '../assets/kouign-amann.jpeg'
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color var(--transition-normal);
+    transition: var(--transition-normal);
   }
 
-  .contact-info a:hover,
-  .contact-info a:hover svg {
+  .contact-info a:hover {
     color: var(--color-black);
-    fill: var(--color-black);
   }
 
   .contact-info svg {
     width: 1rem;
     height: 1rem;
-    fill: var(--color-grey);
     transition: fill var(--transition-normal);
   }
 </style>

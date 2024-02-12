@@ -1,5 +1,5 @@
 ---
-import Icon from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 ---
 
 <footer id="footer" class="footer">
@@ -60,6 +60,7 @@ import Icon from 'astro-icon'
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--color-secondary);
     transition: var(--transition-normal);
   }
 
@@ -70,12 +71,7 @@ import Icon from 'astro-icon'
   .footer-info svg {
     width: 1rem;
     height: 1rem;
-    fill: var(--color-white);
     transition: fill var(--transition-normal);
-  }
-
-  .footer-info a:hover svg {
-    fill: var(--color-black);
   }
 
   .footer-icons {
@@ -91,12 +87,12 @@ import Icon from 'astro-icon'
   .footer-icons svg {
     width: var(--size-base);
     height: var(--size-base);
-    stroke: var(--color-secondary);
+    color: var(--color-secondary);
     transition: all var(--transition-normal);
   }
 
   .footer-icons a:hover svg {
     transform: scale(1.05);
-    stroke: var(--color-black);
+    color: var(--color-black);
   }
 </style>

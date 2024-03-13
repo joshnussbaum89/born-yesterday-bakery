@@ -52,7 +52,7 @@ const menuItems = {
     },
     {
       name: 'Seasonal Veg Focaccia',
-      price: '[4x4" slice $6 / Full 9x12" $24]',
+      price: '4x4" slice $6 / Full 9x12" $24',
     },
     {
       name: 'Frozen Pizza Dough (pick up only)',
@@ -79,6 +79,26 @@ const menuItems = {
     {
       name: 'Morning Bun',
       price: '$5',
+    },
+  ],
+  csa: [
+    {
+      name: 'Small Share',
+      price: '$120',
+    },
+    {
+      name: 'Medium Share',
+      price: '$240',
+    },
+  ],
+  subscription: [
+    {
+      name: 'Small Share',
+      price: '3 months $120 + shipping / 6 months $240 + shipping',
+    },
+    {
+      name: 'Medium Share',
+      price: '3 months $240 + shipping / 6 months $480 + shipping',
     },
   ],
 }
@@ -113,6 +133,32 @@ const menuItems = {
         <ul>
           {
             menuItems.pastries.map((item) => (
+              <li>
+                {item.name}
+                <span>{item.price}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="menu-category">
+        <h2>CSA (Morning Glory Farm + New Spoke Farm)</h2>
+        <ul>
+          {
+            menuItems.csa.map((item) => (
+              <li>
+                {item.name}
+                <span>{item.price}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="menu-category">
+        <h2>Weekly Subscription</h2>
+        <ul>
+          {
+            menuItems.subscription.map((item) => (
               <li>
                 {item.name}
                 <span>{item.price}</span>

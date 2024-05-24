@@ -162,5 +162,5 @@ const { src: sproutedRyeImageWebp } = await getImage({ src: sproutedRye, format:
   }
 
   // Load immediately if the DOM is ready
-  window.addEventListener('DOMContentLoaded', handleSplashDisplay)
+  document.addEventListener('astro:page-load', handleSplashDisplay)
 </script>

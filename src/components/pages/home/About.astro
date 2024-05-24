@@ -74,7 +74,7 @@ import sydTwo from '../../../assets/syd-two.jpg'
       />
     </div>
   </div>
-  <a class="site-cta" href="/menu" data-astro-prefetch>See Our Menu</a>
+  <a class="site-cta" href="/menu">See Our Menu</a>
   <div class="about-hours">
     <h3>Hours</h3>
     <ul>
@@ -181,41 +181,43 @@ import sydTwo from '../../../assets/syd-two.jpg'
 </style>
 
 <script>
-  const images = document.querySelectorAll('.image-container')
+  document.addEventListener('astro:page-load', () => {
+    const images = document.querySelectorAll('.image-container')
 
-  function handleActiveImagesOnScroll() {
-    if (!window.IntersectionObserver) {
-      return console.log('IntersectionObserver not supported')
-    }
-
-    const options = {
-      root: null,
-      rootMargin: '-25%',
-      threshold: 0.1,
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      if (window.innerWidth < 768) {
-        entries.forEach((entry) => {
-          const image = entry.target
-
-          if (entry.isIntersecting) {
-            image.classList.add('active')
-          } else {
-            image.classList.remove('active')
-          }
-        })
+    function handleActiveImagesOnScroll() {
+      if (!window.IntersectionObserver) {
+        return console.log('IntersectionObserver not supported')
       }
-    }, options)
 
-    images.forEach((section) => observer.observe(section))
-  }
+      const options = {
+        root: null,
+        rootMargin: '-25%',
+        threshold: 0.1,
+      }
 
-  // Reset active sections on resize
-  window.addEventListener('resize', () => {
-    images.forEach((image) => image.classList.remove('active'))
+      const observer = new IntersectionObserver((entries) => {
+        if (window.innerWidth < 768) {
+          entries.forEach((entry) => {
+            const image = entry.target
+
+            if (entry.isIntersecting) {
+              image.classList.add('active')
+            } else {
+              image.classList.remove('active')
+            }
+          })
+        }
+      }, options)
+
+      images.forEach((section) => observer.observe(section))
+    }
+
+    // Reset active sections on resize
+    window.addEventListener('resize', () => {
+      images.forEach((image) => image.classList.remove('active'))
+    })
+
+    // Set active sections on scroll
+    document.addEventListener('scroll', handleActiveImagesOnScroll)
   })
-
-  // Set active sections on scroll
-  document.addEventListener('scroll', handleActiveImagesOnScroll)
 </script>

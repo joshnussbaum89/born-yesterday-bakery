@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Bobby Jones Soft';
-  src: url('/fonts/BobbyJonesSoft-Regular.woff2') format('woff2');
+  src: url('/fonts/bobby-jones-regular.woff2') format('woff2'),
+    url('/fonts/bobby-jones-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: 'Bobby Rough Soft Outline';
-  src: url('/fonts/BobbyRoughSoft-Outline.woff2') format('woff2');
+  src: url('/fonts/bobby-jones-outline.woff2') format('woff2'),
+    url('/fonts/bobby-jones-outline.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

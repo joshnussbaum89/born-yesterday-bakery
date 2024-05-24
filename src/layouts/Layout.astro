@@ -1,8 +1,9 @@
 ---
-import '../styles/global.css'
+import { ViewTransitions } from 'astro:transitions'
 import Splash from '../components/Splash.astro'
-import Navigation from '../components/layout/navigation/Navigation.astro'
 import Footer from '../components/layout/Footer.astro'
+import Navigation from '../components/layout/navigation/Navigation.astro'
+import '../styles/global.css'
 
 interface Props {
   title: string
@@ -52,6 +53,22 @@ const socialImageURL = new URL('/sprouted-rye.png', canonicalURL)
       rel="stylesheet"
     />
 
+    <!-- Preload Fonts -->
+    <link
+      rel="preload"
+      href="/fonts/bobby-jones-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/bobby-jones-outline.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -60,36 +77,37 @@ const socialImageURL = new URL('/sprouted-rye.png', canonicalURL)
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff5758" />
     <meta name="msapplication-TileColor" content="#f0f9ff" />
     <meta name="theme-color" content="#f0f9ff" />
+
+    <!-- Animations -->
+    <ViewTransitions />
   </head>
   <body data-overlay-displayed="false">
     <Splash />
     <header>
       <Navigation />
     </header>
-    <div class="content-wrapper">
+    <div class="site-wrapper">
       <slot />
       <Footer />
     </div>
+    <style>
+      .site-wrapper {
+        transition: opacity var(--transition-long);
+        opacity: 0;
+      }
+
+      .site-wrapper.active {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      function handleContentFadeIn() {
+        const siteWrapper = document.querySelector('.site-wrapper')
+        siteWrapper?.classList.add('active')
+      }
+
+      document.addEventListener('astro:page-load', handleContentFadeIn)
+    </script>
   </body>
 </html>
-
-<style>
-  .content-wrapper {
-    transition: opacity var(--transition-long);
-    opacity: 0;
-  }
-
-  .content-wrapper.active {
-    opacity: 1;
-  }
-</style>
-
-<script>
-  function handleContentFadeIn() {
-    const contentWrapper = document.querySelector('.content-wrapper')
-    contentWrapper?.classList.add('active')
-  }
-
-  // Load after all assets are loaded
-  window.addEventListener('load', handleContentFadeIn)
-</script>

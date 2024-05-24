@@ -12,7 +12,12 @@ const { title, description, image } = Astro.props
 
 // Creating multiple image file types causes multiple network requests to load each image
 // For now, we are using WEBP only to reduce the number of requests
-const { src: backgroundImageWebp } = await getImage({ src: image, format: 'webp' })
+const { src: backgroundImageWebp } = await getImage({
+  src: image,
+  format: 'webp',
+  quality: 75,
+  loading: 'eager',
+})
 ---
 
 <div class="banner" style={`background-image: url(${backgroundImageWebp});`}>
